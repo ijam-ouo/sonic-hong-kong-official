@@ -1,0 +1,231 @@
+body {
+  background-color: #3a3d4b;
+  background-color: #373944;
+  color: #fff;
+  margin: 6%;
+
+  font-family: "Bodoni Moda", serif;
+  font-family: "Playfair Display SC", serif;
+  font-family: "Playfair Display", serif;
+  font-family: "Roboto Serif", serif;
+  font-family: "Roboto Slab", serif;
+  font-family: "Spectral", serif;
+  font-family: "Righteous", sans-serif;
+  font-family: "Kranky", serif;
+  font-family: "Caveat", cursive;
+  font-family: "Fuzzy Bubbles", sans-serif;
+  font-family: "Kalam", cursive;
+  /* (font-weight) "Bodoni Moda": 400 to 900; Playfair Display SC: 400/700/900, Playfair Display: 400 to 900, Roboto Serif: 100 to 900, Roboto Slab: 100 to 900, "Spectral": 200-800, Righteous: default 400, Kranky: default 400, Caveat: 400-700, Fuzzy Bubbles: 400/700, Kalam: 300/400/700 */
+  font-weight: 900;
+  font-weight: 700;
+  font-weight: 400;
+  font-weight: 200;
+  font-style: italic; /* Playfair Display SC, "Spectral" */
+  font-style: normal;
+  font-optical-sizing: auto;
+}
+
+/* Font start */
+
+.bodoni-moda {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  /* font-weight from 400 to 900 */
+  font-weight: 900;
+  font-style: normal;
+}
+.bodoni-moda-regular {
+  font-family: "Bodoni Moda", serif;
+  font-weight: 550;
+  font-style: normal;
+  font-size: 16px;
+}
+
+.playfair-display-sc-regular {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.playfair-display-sc-bold {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.playfair-display-sc-black {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.playfair-display-sc-regular-italic {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.playfair-display-sc-bold-italic {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.playfair-display-sc-black-italic {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 900;
+  font-style: italic;
+}
+.playfair-display {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+.playfair-display-regular {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.roboto-serif-bold {
+  font-family: "Roboto Serif", serif;
+  font-optical-sizing: auto;
+  /* font-weight: 100-900; */
+  font-weight: 900;
+  font-style: normal;
+  font-variation-settings: "wdth" 100, "GRAD" 0;
+}
+.roboto-serif-regular {
+  font-family: "Roboto Serif", serif;
+  font-optical-sizing: auto;
+  /* font-weight: 100-900; */
+  font-weight: 200;
+  font-style: normal;
+  font-variation-settings: "wdth" 100, "GRAD" 0;
+}
+.roboto-slab-bold {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  /* font-weight: 100-900; */
+  font-weight: 800;
+  font-style: normal;
+}
+.roboto-slab-regular {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  /* font-weight: 100-900; */
+  font-weight: 360;
+  font-style: normal;
+}
+.spectral-extralight {
+  font-family: "Spectral", serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.spectral-light {
+  font-family: "Spectral", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.spectral-regular {
+  font-family: "Spectral", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.spectral-medium {
+  font-family: "Spectral", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.spectral-semibold {
+  font-family: "Spectral", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.spectral-bold {
+  font-family: "Spectral", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.spectral-extrabold {
+  font-family: "Spectral", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.spectral-extralight-italic {
+  font-family: "Spectral", serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.spectral-light-italic {
+  font-family: "Spectral", serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.spectral-regular-italic {
+  font-family: "Spectral", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.spectral-medium-italic {
+  font-family: "Spectral", serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.spectral-semibold-italic {
+  font-family: "Spectral", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.spectral-bold-italic {
+  font-family: "Spectral", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.spectral-extrabold-italic {
+  font-family: "Spectral", serif;
+  font-weight: 800;
+  font-style: italic;
+}
+/* Font end */
+
+.bottom-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  height: 200px; /* or your desired height */
+  width: 100%; /* or your desired width */
+  position: relative;
+  gap: 16px;
+}
+.bottom-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 200px; /* or your desired height */
+  width: 100%; /* or your desired width */
+  position: relative;
+  gap: 16px;
+}
+.h1-fat {
+  width: 250px;
+}
+.p-fat {
+  width: 440px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

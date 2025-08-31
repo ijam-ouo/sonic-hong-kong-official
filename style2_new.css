@@ -1,0 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Serif", serif;
+  font-weight: 200;
+}
+
+/* --russian-violet: #231942ff;
+--ultra-violet: #5e548eff;
+--african-violet: #9f86c0ff;
+--lilac: #be95c4ff;
+--pink-lavender: #e0b1cbff; */
+
+/* --oxford-blue: #0b132bff;
+--space-cadet: #1c2541ff;
+--yinmn-blue: #3a506bff;
+--verdigris: #5bc0beff;
+--fluorescent-cyan: #6fffe9ff; */
+
+header {
+  background-color: #333333;
+}
+.logo {
+  height: 100px;
+  cursor: pointer;
+  text-align: center;
+}
+.navbar {
+  height: 10%;
+  display: flex;
+  align-items: center;
+}
+nav .fa-solid {
+  width: 50px;
+  cursor: pointer;
+  margin-left: 40px;
+}
+nav {
+  flex: 1;
+  text-align: right;
+  flex-direction: column;
+}
+nav ul li {
+  list-style: none;
+  display: inline;
+  margin-left: 30px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 13px;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+    url(images/background_1.jpg);
+  /* background-color: #1c2541ff; */
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat-y;
+  position: relative;
+  padding: 70px 4%;
+  box-sizing: border-box;
+}
+
+.row {
+  display: block;
+  height: auto;
+  flex-direction: column;
+  /* display: flex;
+  flex-direction: row;
+  height: 88%; */
+  align-items: center;
+}
+
+.col {
+  display: flex;
+  width: 100%;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+.Righteous-heading {
+  font-family: "Righteous", serif;
+  font-weight: 900;
+  color: #6fffe9ff;
+  font-size: 90px;
+  line-height: 78px;
+  margin-bottom: 10px;
+}
+.Righteous-subheading {
+  font-family: "Righteous", serif;
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+}
+.Roboto-serif-text {
+  font-family: "Roboto Serif", serif;
+  /* font-family: "Roboto Slab", serif; */
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 20px;
+}
+
+h2 {
+  color: #fff;
+  font-size: 25px;
+}
+p {
+  color: #fff;
+  font-size: 16px;
+  line-height: 15px;
+}
+a {
+  flex: none;
+  width: 250px;
+  height: 230px;
+  margin: 10px 15px;
+}
+.card {
+  /* width: 250px;
+  height: 230px; */
+  width: 100%;
+  height: 100%;
+  padding: 12px 25px;
+  display: inline-block;
+  border-radius: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-position: center;
+  background-size: cover;
+  vertical-align: top;
+  transition: transform 0.5s;
+}
+.card h4 {
+  color: #6fffe9ff;
+  font-weight: 600;
+  text-shadow: 1px 2px 3px #3a3a3a;
+}
+.card p {
+  color: #fff;
+
+  text-shadow: 1px 2px 3px #3a3a3a;
+}
+.card1 {
+  background-image: url(images/dp_HiddenStories.jpg);
+}
+.card2 {
+  background-image: url(images/SundayVoices.jpg);
+}
+.card3 {
+  background-image: url(images/dp_SonicYouth.jpg);
+}
+.card4 {
+  background-image: url(images/dp_SoundBite.jpg);
+}
+/* Box Move Up */
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* Map Session */
+.mapSection {
+  width: 100%;
+  height: 100vh;
+}
+.mapSection h1 {
+  color: #fff;
+  margin-bottom: -50px;
+}
+iframe {
+  width: 100%;
+  height: 680px;
+  position: relative;
+  clip-path: polygon(0% 12%, 100% 12%, 100% 100%, 0% 100%);
+  top: -1em;
+  border: inherit;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+@media (max-width: 1250px) {
+  .col {
+    flex-wrap: wrap;
+  }
+  a {
+    width: 45%;
+  }
+}
+
+@media (max-width: 500px) {
+  a {
+    width: 90%;
+  }
+  .Righteous-heading {
+    font-size: 50px;
+    line-height: 40px;
+  }
+  .Righteous-subheading {
+    font-size: 20px;
+  }
+}

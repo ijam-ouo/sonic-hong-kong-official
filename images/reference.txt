@@ -1,0 +1,18 @@
+dp_HiddenStories.jpg - Ashton Bingham(ashtonbingham), via unsplash.com
+dp_SonicYouth.jpg - Mark Rohan(wackomac007), via unsplash.com(referncial)
+dp_SoundBite.jpg - Jason Yuen, via unsplash.com
+dp_SundayVoices - Chris Dwyer, internet
+SundayVoices.jpg - Edmond So, scmp.com
+
+<a href='https://pngtree.com/freepng/whatsapp-mobile-software-icon_8704828.html'>png image from pngtree.com/</a>
+
+11am-12noon
+
+nav bar on top of everything
+Sound Bites title bigger / smarter than sonic hong kong (prominent)
+still need to be more visually separate the <div>
+
+
+[post 
+[find reference and post on miro]
+[about us: overall description, researchers, contact]

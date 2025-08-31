@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SongKong</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/2125dcdb0e.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- Section: Header -->
+    <section class="header">
+      <nav>
+        <a href="index.html"><img src="images/logo_sound-waves.png" /></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa-solid fa-square-xmark" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="">HOME</a></li>
+            <li><a href="HiddenStories.html">HIDDEN STORIES</a></li>
+            <li><a href="SundayVoices.html">SUNDAY VOICES</a></li>
+            <li><a href="">SONIC YOUTH</a></li>
+            <li><a href="">SOUND BITE</a></li>
+          </ul>
+        </div>
+        <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+      </nav>
+      <div class="text-box">
+        <h1>Sonic Hong Kong: Sonic Exploration of Hong Kong</h1>
+        <p>
+          The project is a collective effort to explore layers of history,
+          hidden stories, and living experiences of Hong Kong through sonic
+          expressions. <br />The themes include Hidden Stories, Sunday Voices,
+          Sonic Youth, Sound Bites.
+        </p>
+        <a href="" class="hero-btn">Click To Learn More</a>
+      </div>
+    </section>
+
+    <!-- Section: Hidden Stories -->
+    <section class="hidden-stories">
+      <h1>Hidden Stories</h1>
+      <p>Hong Kong Soundwalks by Sound Artists and Students</p>
+
+      <div class="row">
+        <div class="hidden-stories-col">
+          <h3>Story 1</h3>
+          <p>
+            story 1 description. Including the theme, the place, the inspiration
+            etc.
+          </p>
+        </div>
+        <div class="hidden-stories-col">
+          <h3>Story 2</h3>
+          <p>
+            story 2 description. Including the theme, the place, the inspiration
+            etc.
+          </p>
+        </div>
+        <div class="hidden-stories-col">
+          <h3>Story 3</h3>
+          <p>
+            story 3 description. Including the theme, the place, the inspiration
+            etc.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Sunday Voices -->
+    <section class="sunday-voices">
+      <h1>Sunday Voices</h1>
+      <p>Voices of Domestic Helpers in Hong Kong</p>
+
+      <div class="row">
+        <div class="sunday-voices-col">
+          <img src="images/dp_SundayVoices.jpg" />
+          <div class="layer">
+            <h3>
+              Domestic helpers gathering outside of a building on Sundays
+              (Photo: Chris Dwyer)
+            </h3>
+          </div>
+          <div class="sunday-voices-col">
+            <img src="images/dp_SundayVoices.jpg" />
+            <div class="layer">
+              <h3>
+                2
+              </h3>
+            </div>
+            <div class="sunday-voices-col">
+              <img src="images/dp_SundayVoices.jpg" />
+              <div class="layer">
+                <h3>
+                  3
+                </h3>
+              </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JavaScript for Toggle Menu -->
+    <script>
+      var navLinks = document.getElementById("navLinks");
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
+    </script>
+  </body>
+</html>

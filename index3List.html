@@ -1,0 +1,108 @@
+<link rel="stylesheet" href="styleList.css" />
+
+<div class="card" id="catCard">Cat Card</div>
+<div class="card" id="dogCard">Dog Card</div>
+
+<p id="contentParagraph" class="fade visible">
+  This is a paragraph about cats.
+</p>
+
+<div id="contentListContainer" class="fade visible">
+  <ul id="contentList">
+    <li>
+      <div class="audio-item">
+        Cat 1
+        <audio controls>
+          <source src="audio/cat1.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </li>
+    <li>
+      <div class="audio-item">
+        Cat 2
+        <audio controls>
+          <source src="audio/cat2.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </li>
+    <li>
+      <div class="audio-item">
+        Cat 3
+        <audio controls>
+          <source src="audio/cat3.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<script>
+  function changeContent(content, listItems) {
+    const paragraph = document.getElementById("contentParagraph");
+    const list = document.getElementById("contentList");
+    const container = document.getElementById("contentListContainer");
+
+    // Start transition by removing 'visible' class
+    paragraph.classList.remove("visible");
+    container.classList.remove("visible");
+
+    // Use a timeout to allow the fade-out transition to complete
+    setTimeout(() => {
+      // Update paragraph content
+      paragraph.textContent = content;
+
+      // Clear existing list items
+      list.innerHTML = "";
+
+      // Add new list items
+      listItems.forEach((item) => {
+        const li = document.createElement("li");
+        const div = document.createElement("div");
+        div.className = "audio-item";
+        div.textContent = item.name;
+
+        const audio = document.createElement("audio");
+        audio.controls = true;
+
+        const source = document.createElement("source");
+        source.src = item.audioSrc;
+        source.type = "audio/mpeg";
+
+        audio.appendChild(source);
+        div.appendChild(audio);
+        li.appendChild(div);
+        list.appendChild(li);
+      });
+
+      // End transition by adding 'visible' class
+      paragraph.classList.add("visible");
+      container.classList.add("visible");
+    }, 500); // Duration should match the CSS transition duration
+  }
+
+  // Add event listeners to cards
+  document.getElementById("catCard").addEventListener("click", function () {
+    changeContent("This is a paragraph about cats.", [
+      { name: "Cat 1", audioSrc: "audio/cat1.mp3" },
+      { name: "Cat 2", audioSrc: "audio/cat2.mp3" },
+      { name: "Cat 3", audioSrc: "audio/cat3.mp3" },
+    ]);
+  });
+
+  document.getElementById("dogCard").addEventListener("click", function () {
+    changeContent("This is a paragraph about dogs.", [
+      { name: "Dog 1", audioSrc: "audio/dog1.mp3" },
+      { name: "Dog 2", audioSrc: "audio/dog2.mp3" },
+      { name: "Dog 3", audioSrc: "audio/dog3.mp3" },
+    ]);
+  });
+
+  // Initialize page with visible content
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("contentParagraph").classList.add("visible");
+    document.getElementById("contentListContainer").classList.add("visible");
+  });
+</script>

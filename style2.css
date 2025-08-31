@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+    url(images/background_1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat-y;
+  position: relative;
+  padding-left: 6%;
+  padding-right: 6%;
+  box-sizing: border-box;
+}
+.navbar {
+  height: 12%;
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 60px;
+  cursor: pointer;
+}
+nav .fa-solid {
+  width: 50px;
+  cursor: pointer;
+  margin-left: 40px;
+}
+nav {
+  flex: 1;
+  text-align: right;
+}
+nav ul li {
+  list-style: none;
+  display: inline;
+  margin-left: 60px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 13px;
+}
+
+/* left Title */
+.row {
+  display: flex;
+  height: 88%;
+  align-items: center;
+}
+.col {
+  flex-basis: 50%;
+}
+.col h1 {
+  color: #fff;
+  font-size: 40px;
+}
+h2 {
+  color: #fff;
+  font-size: 25px;
+}
+p {
+  color: #fff;
+  font-size: 13px;
+  line-height: 15px;
+}
+/* right Sessions */
+.card {
+  width: 200px;
+  height: 230px;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 15px 25px;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: 10px 30px 10px 30px; /* top righ bottom left */
+  background-position: center;
+  background-size: cover;
+  vertical-align: top;
+  transition: transform 0.5s;
+}
+.card h5 {
+  color: #fff;
+  text-shadow: 0 0 5px #3a3a3a, 1px 1px 0 #3a3a3a;
+}
+.card p {
+  color: #fff;
+  text-shadow: 0 0 5px #3a3a3a;
+}
+.card1 {
+  background-image: url(images/dp_HiddenStories.jpg);
+}
+.card2 {
+  background-image: url(images/dp_SundayVoices.jpg);
+}
+.card3 {
+  background-image: url(images/dp_SonicYouth.jpg);
+}
+.card4 {
+  background-image: url(images/dp_SoundBite.jpg);
+}
+/* Box Move Up */
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* Map Session */
+.mapSection {
+  width: 100%;
+  height: 100vh;
+}
+.mapSection h1 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+iframe {
+  width: 100%;
+  height: 680px;
+  position: relative;
+  clip-path: polygon(0% 12%, 100% 12%, 100% 100%, 0% 100%);
+  top: -1em;
+  border: inherit;
+}
+
+@media (max-width: 700px) {
+  .row {
+    display: block;
+    height: auto;
+  }
+  .col {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .card {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul li {
+    display: block;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}

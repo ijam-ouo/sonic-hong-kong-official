@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="styleFonts.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Caveat:wght@400..700&family=Fuzzy+Bubbles:wght@400;700&family=Kalam:wght@300;400;700&family=Kranky&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Righteous&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto+Slab:wght@100..900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=mic"
+/>
+<html>
+  <head>
+    <title>SoundBites</title>
+    <link rel="stylesheet" href="style_sound-bites.css" />
+  </head>
+
+  <body>
+    <header class="sticky">
+      <div class="navbar" style="margin-bottom: 0">
+        <img src="images/Logo-w.png" class="logo" />
+        <nav>
+          <ul>
+            <li><a href="sonichongkong.html">HOME</a></li>
+            <li><a href="about-us.html">ABOUT US</a></li>
+            <li><a href="hidden-stories.html">HIDDEN STORIES</a></li>
+            <li><a href="sunday-voices.html">SUNDAY VOICES</a></li>
+            <li><a href="sonic-youth.html">SONIC YOUTH</a></li>
+            <li><a href="sound-bites.html">SOUND BITES</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container" style="margin: 0">
+      <div class="header sb">
+        <div class="header-content">
+          <h1 class="Righteous-heading">Sound Bites</h1>
+          <p class="Righteous-subheading">
+            Community Archive of Favourite Cantonese Expressions
+          </p>
+        </div>
+      </div>
+
+      <div class="box">
+        <div>
+          <h2>Welcome to <i class="Righteous">Sound Bites</i></h2>
+          <p>
+            <i>Sound Bites</i>, a community based research project at HKBU,
+            explores the expressive soundscape of Cantonese language, and the
+            Hong Kongers' affection for this special language.
+          </p>
+          <img class="img-intro" src="images/Intro1.png" />
+          <p>
+            Cantonese is the mother tongue spoken in Hong Kong. As one of the
+            most tonally complex languages of the world, it contributes to a
+            quintessential soundscape of Hong Kongers with their jovial
+            expressions and musical tonalities.
+          </p>
+
+          <p>
+            As an intimate and profound heritage of human cultures, language is
+            expressive of personalities of a culture, its people, and its
+            history. <i>Sound Bites</i> invites you for a short interview to
+            share your unique perspectives and experiences. Your answers will be
+            collected for <i>research purposes</i>. Additionally, your audios
+            might be showcased in an <i>expressive media output</i>. Please
+            express yourself freely and personally!
+          </p>
+        </div>
+        <br />
+        <!--  -->
+        <div>
+          <h2>
+            How can I join the <i class="Righteous">Sound Bites</i> interview?
+          </h2>
+          <p>
+            Your participation is incredibly valuable to us. We have three
+            interview questions for you. You can answer them by recording audio
+            files using your own device such as a mobile phone. After you are
+            done recording, please send them to us through WhatsApp (jurihwang
+            at 6600-9708) or Email (jurihwang@hkbu.edu.hk).
+          </p>
+          <i>
+            We recommend using smart phones or microphones for better audio
+            quality.
+          </i>
+        </div>
+        <br />
+      </div>
+      <!--  -->
+      <div class="question">
+        <h2><i class="Righteous">Sound Bites</i> Interview Questions</h2>
+
+        <h3>Q1. What is your favorite Cantonese expression? And why?</h3>
+        <p style="margin-bottom: 0">
+          Whether it’s a phrase that makes you smile, a saying that holds
+          special meanings, or a fun expression you love, we want to hear it!
+        </p>
+        <p style="margin-top: 8px">
+          No time limit, you can answer all steps in one.
+        </p>
+        <dl>
+          <dt><i>Step 1:</i></dt>
+          <dd>State the expression just like you would speak in real life.</dd>
+          <dt><i>Step 2:</i></dt>
+          <dd>Tell us the meaning of the expression.</dd>
+          <dt><i>Step 3:</i></dt>
+          <dd>Elaborate on why you like the expression.</dd>
+        </dl>
+
+        <div class="recordcontainer">
+          <h2 style="font-size: 30px">Record through Website</h2>
+          <button id="startRecordingQ1" class="button record">
+            Start Recording
+          </button>
+          <button id="stopRecordingQ1" class="button record">
+            Stop Recording
+          </button>
+          <ul id="audioList"></ul>
+          <audio id="audioPlayer" controls></audio>
+        </div>
+
+        <h3>Q2. How is Cantonese special?</h3>
+        <p style="margin-bottom: 50px">
+          Please share your thoughts in 30 seconds or less. In answering, you
+          can consider aspects of Cantonese language or more personal
+          associations, such as, in what way Cantonese is special to you.
+        </p>
+
+        <div class="recordcontainer">
+          <h2 style="font-size: 30px">Record through Website</h2>
+          <button id="startRecordingQ1" class="button record">
+            Start Recording
+          </button>
+          <button id="stopRecordingQ1" class="button record">
+            Stop Recording
+          </button>
+          <ul id="audioList"></ul>
+          <audio id="audioPlayer" controls></audio>
+        </div>
+
+        <h3>Q3. How has Cantonese influenced your life or identity?</h3>
+        <p>
+          Please share your thoughts in 30 seconds or less. Think about a moment
+          or experience that stands out to you!
+        </p>
+
+        <div class="recordcontainer">
+          <h2 style="font-size: 30px">Record through Website</h2>
+          <button id="startRecordingQ1" class="button record">
+            Start Recording
+          </button>
+          <button id="stopRecordingQ1" class="button record">
+            Stop Recording
+          </button>
+          <ul id="audioList"></ul>
+          <audio id="audioPlayer" controls></audio>
+        </div>
+      </div>
+      <br />
+      <!--  -->
+      <div class="box">
+        <div class="instruction">
+          <h2>Instruction</h2>
+          <h3>1. Record your Answers</h3>
+          <p>
+            Either through the website recorder above, or using your own
+            device's recording app.
+          </p>
+
+          <h3>2. Name your Files</h3>
+          <p>
+            After having your files on your device, name them using the format:
+          </p>
+          <ul>
+            <li>"Q1_YourName", e.g. <i>"Q1_MichaelLee"</i></li>
+            <li>"Q2_YourName"</li>
+            <li>"Q3_YourName"</li>
+          </ul>
+
+          <h3>3. Submit your Audio Files</h3>
+          <dl>
+            <dt>
+              <h3><i>WhatsApp</i></h3>
+            </dt>
+            <dd>
+              For WhatsApp, send message "Hi, I am joining the Sound Bites
+              interview" to any of the following numbers (no:), with your files.
+            </dd>
+            <dt>
+              <h3><i>Email</i></h3>
+            </dt>
+            <dd>
+              For Email, send message to the following email (address:) with the
+              subject line "Sound Bites Interview.", and send with your files.
+            </dd>
+          </dl>
+          <img class="img-sendus" src="images/SendUs1.png" />
+        </div>
+        <!--  -->
+        <div>
+          <h2>Any Questions?</h2>
+          <p>
+            For inquiries, please contact us via Email with the subject line
+            "Sound Bites: I want to ask" We welcome any questions and look
+            forward to hearing from you. Thank you for your interest!
+          </p>
+        </div>
+        <br />
+        <br /><br />
+      </div>
+    </div>
+  </body>
+  <script src="audiorec.js"></script>
+</html>
