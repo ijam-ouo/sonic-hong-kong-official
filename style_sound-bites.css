@@ -104,17 +104,16 @@ nav ul li a {
   box-sizing: border-box;
 }
 .box {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   width: 100%;
-
   background-position: center;
   background-size: cover;
   background-repeat: repeat-y;
   position: relative;
-
   padding-left: 6%;
   padding-right: 6%;
   box-sizing: border-box;
+  margin-bottom: 0;
 }
 
 div {
@@ -152,6 +151,7 @@ h2 {
   font-weight: 900;
   font-style: normal;
   font-size: 40px;
+  letter-spacing: 0.14rem;
 }
 h3 {
   font-family: "Righteous", serif;
@@ -179,6 +179,7 @@ p {
 p {
   font-size: 18px;
   color: white;
+  line-height: 25px;
 }
 i {
   color: #be95c4ff;
@@ -191,7 +192,7 @@ i {
 
 .button {
   background-color: transparent;
-  border-radius: 4px;
+  border-radius: 30px;
   color: white;
   border: 2px solid grey;
   padding: 15px 32px;
@@ -227,6 +228,8 @@ i {
 .question {
   padding: 35px 30px;
   border: 5px white outset;
+  border: 3px solid #ccc !important;
+  border-radius: 16px;
   background-color: #be95c4ff;
   background-color: #be95c4a3;
   background-color: #c495ab;
@@ -236,24 +239,24 @@ i {
 }
 .question h2 {
   text-align: center;
-  margin: 12px 0px 18px;
+  margin: 12px 0px 12px;
 }
 .question h2 i {
   font-family: "Righteous", serif;
 }
 .question h3 {
-  margin: 20px 0px 0px;
+  margin: 30px 0px 0px;
   font-family: "Kalam", cursive;
   text-decoration: underline;
   font-weight: 700;
-  font-size: 28px;
+  font-size: 33px;
   color: #5e548eff;
   color: #f9bddb;
   color: #d52c52;
 }
 
 .question dl {
-  padding: 10px 10px;
+  padding: 10px 10px 0px 10px;
   margin-bottom: 10px;
   font-size: 18px;
 }
@@ -305,4 +308,40 @@ dl {
 }
 .Righteous {
   font-family: "Righteous", serif;
+}
+.icon {
+  width: 150px;
+}
+.contact {
+  background-color: #fda1b5;
+  padding: 24px 34px;
+  margin: 0 auto;
+}
+.contact h2 {
+  color: #3b383b;
+}
+.contact P {
+  color: #3b383b;
+}
+.contact a {
+  color: black;
+}
+.method {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0px 20px;
+  align-items: center;
+}
+.methods {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  gap: 0px 60px;
+  align-items: start;
+}
+
+.email {
+  margin-bottom: 0;
+}
+.whatsapp {
+  margin-bottom: 0;
 }
