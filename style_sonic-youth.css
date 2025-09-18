@@ -24,26 +24,12 @@ body {
   background-size: cover;
   background-position: center;
   overflow: hidden;
-  background-image: url(images/dp_SoundBite.jpg);
+  background-image: url(images/dp_SonicYouth.jpg);
   mask-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 1) 85%,
     rgba(0, 0, 0, 0) 100%
   );
-}
-.headerAboutus {
-  position: relative;
-  width: 100%;
-  height: 700px;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-  /* background-image: url(images/background_1.jpg);
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 85%,
-    rgba(0, 0, 0, 0) 100%
-  ); */
 }
 
 .header::after {

@@ -1,120 +1,139 @@
 <!DOCTYPE html>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Caveat:wght@400..700&family=Fuzzy+Bubbles:wght@400;700&family=Kalam:wght@300;400;700&family=Kranky&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Righteous&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto+Slab:wght@100..900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=mic"
+/>
 <html>
-    <head>
-        <title>Hidden Stories</title>
-        <link rel="stylesheet" href="styleHiddenStroies.css">
-    </head>
+  <head>
+    <title>Hidden Stories</title>
+    <link rel="stylesheet" href="styleHiddenStroies.css">
+  </head>
 
-    <body> 
-        <div class="container">
-
-            <!-- Section: Header -->
-            <section class="header">
-                <nav>
-                <a href="sonichongkong.html"><img src="images/logo_sound-waves.png" /></a>
-                <div class="nav-links" id="navLinks">
-                    <i class="fa-solid fa-square-xmark" onclick="hideMenu()"></i>
-                    <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="">————</a></li>
-                    <li><a href="">————</a></li>
-                    <li><a href="">————</a></li>
-                    <li><a href="">————</a></li>
-                    </ul>
-                </div>
-                <i class="fa-solid fa-bars" onclick="showMenu()"></i>
-                </nav>
-                <div class="text-box">
-                    <h1>Hidden Stories</h1>
-                    <p>
-                        "Hidden stories" is a captivating series of Soundwalk in Hong Kong, designed to document the auditory experiences crafted by various sound artists and students.
-                        In an age of rapid urbanization and digital distractions, "Hidden stories" serves as a reminder of being aware of the surroundings and what is happening. 
-                        <br>Sound is an omnipresent element of our environment, However, it often goes unnoticed, blending into the background of our busy lives.and we receive it every moment, but it occurs over times and unique. By engaging with these auditory journeys, participants can uncover the hidden stories embedded in the city's sound environment.
-                    </p>
-                    <hr>
-                </div>
-                <!-- List Section -->
-                <div class="listSection">
-                    <div class="leftSide" id="ProjectDetail">
-                        <!-- Artwork content will be displayed here -->
-                        <p>Click on an artwork title to see the content here.</p>
-                    </div>
-                    <div class="divider"></div> <!-- Vertical line divider -->
-                    <div class="rightSide">
-                        <div class="artist">
-                            <h3>3 Hours per Work Day</h3>
-                            <h5>by Giann Leung</h5>
-                            <p>Giann Leung is a sonic artist and multimedia creator currently pursuing a Bachelor of Arts and Technology at Hong Kong Baptist University. Based on her interest in playing games and watching movies, Giann explores how related media can bring viewers into the world of creators and how to bring laughter to players. Her work often blends field recordings, narrative storytelling, and interactive elements, which encourage audiences to join in her imaginary world and listen to the inner monologue of a small potato.</p>
-                            <p class="artwork-title" onclick="showProjectDetail(ProjectDetail1)" onmouseover="showProjectDetail(ProjectDetail1)">Project Details - 3 Hours per Work Day</p>
-                        </div>
-
-                        <hr>
-                        <div class="artist">
-                            <h3>Where did you go last night?</h3>
-                            <h5>by Chris Wong</h5>
-                            <p>Chris Wong is a fictional character often used in Hong Kong Diploma of Secondary Education (HKDSE) examination papers, particularly in English language papers. He typically appears in scenarios or dialogues that test students' comprehension, writing, and communication skills. The use of such characters helps create relatable and realistic contexts for students to engage with during the exams.</p>
-                            <p class="artwork-title" onclick="showProjectDetail(ProjectDetail_WhereDidYouGoLastNight)" onmouseover="showProjectDetail(ProjectDetail_WhereDidYouGoLastNight)">Project Details - Where did you go last night?</p>
-                        </div>
-                        <hr>
-                        <div class="artist">
-                            <h3>Where did you go last night?</h3>
-                            <p>by Chris Wong</p>
-                            <p>Chris Wong is a fictional character often used in Hong Kong Diploma of Secondary Education (HKDSE) examination papers, particularly in English language papers. He typically appears in scenarios or dialogues that test students' comprehension, writing, and communication skills. The use of such characters helps create relatable and realistic contexts for students to engage with during the exams.</p>
-                            <p class="artwork-title" onclick="showProjectDetail('Artwork Content of Artist 3')">Project Details </p>
-                            <!-- [Mouse Over Show] -->
-                        </div>
-                        <hr>
-                        <div class="artist">
-                            <h3>Poppy Cheng</h3>
-                            <p>Artist Statement</p>
-                            <p class="artwork-title" onclick="showArtworkContent('Artwork Content of Artist 3')">Artwork Title 3</p>
-                        </div>
-                        <hr>
-                        <div class="artist">
-                            <h3>March Kwok</h3>
-                            <p>Artist Statement</p>
-                            <p class="artwork-title" onclick="showArtworkContent('Artwork Content of Artist 2')">Artwork Title 2</p>
-                        </div>
-                    </div>
-            </section>
-
-            <script>
-                // Script -- Toggle Menu
-                var navLinks = document.getElementById("navLinks");
-                function showMenu() {
-                navLinks.style.right = "0";
-                }
-                function hideMenu() {
-                navLinks.style.right = "-200px";
-                }
-
-                // Script -- ArtworkDetail Content
-                const ProjectDetail1 = `
-                    <h2>3 Hours per Work Day</h2>
-                    <p>3 Hours per Work Day is a soundwalk inspired from daily life transportation, where time seems to be used on nothing meaningful and all the time is wasted during the ride. The work is adapted from personal daily experiences and reflections, which takes place on a real train ride to imitate Giann’s routine for travelling between school and home. It also uses a second-person perspective storytelling to allow the audience to experience the “wasted time” spent on long-distance traffic, feel the existence of time, and think about the use of time. It really is just a part of life that people don’t like that much, yet also is a place where she hides when she wants to “log out” of reality briefly.</p>
-                    <p>Additional details about the artwork, etc...</p>
-                `;
-                const ProjectDetail_WhereDidYouGoLastNight = `
-                    <h2>Where did you go last night?</h2>
-                    <p>It is about a non-exist person that keeps wandering around at school, and appearing especially when there are English Listening Test. This person always sign their name on letters or emails written by others. It is a story that happened at one night...</p>
-                    <p>Further exploration and background stories, etc...</p>
-                    <p>It is about a non-exist person that keeps wandering around at school, and appearing especially when there are English Listening Test. This person always sign their name on letters or emails written by others. It is a story that happened at one night...</p>
-                    <p>Further exploration and background stories, etc...</p>
-                    <p>It is about a non-exist person that keeps wandering around at school, and appearing especially when there are English Listening Test. This person always sign their name on letters or emails written by others. It is a story that happened at one night...</p>
-                    <p>Further exploration and background stories, etc...</p>
-                    <p>It is about a non-exist person that keeps wandering around at school, and appearing especially when there are English Listening Test. This person always sign their name on letters or emails written by others. It is a story that happened at one night...</p>
-                    <p>Further exploration and background stories, etc...</p>
-                    <p>It is about a non-exist person that keeps wandering around at school, and appearing especially when there are English Listening Test. This person always sign their name on letters or emails written by others. It is a story that happened at one night...</p>
-                    <p>Further exploration and background stories, etc...</p>
-                    <p>It is about a non-exist person that keeps wandering around at school, and appearing especially when there are English Listening Test. This person always sign their name on letters or emails written by others. It is a story that happened at one night...</p>
-                    <p>Further exploration and background stories, etc...</p>
-                `;
-                // Script -- showLeftsideContent
-                function showProjectDetail(content) {
-                document.getElementById('ProjectDetail').innerHTML = content;
-                }
-            </script>
+  <body> 
+      <header class="sticky">
+        <div class="navbar" style="margin-bottom: 0">
+          <img src="images/Logo-w.png" class="logo" />
+          <nav>
+            <ul>
+              <li><a href="index.html">HOME</a></li>
+              <li><a href="about-us.html">ABOUT US</a></li>
+              <li><a href="hidden-stories.html">HIDDEN STORIES</a></li>
+              <li><a href="sunday-voices.html">SUNDAY VOICES</a></li>
+              <li><a href="sonic-youth.html">SONIC YOUTH</a></li>
+              <li><a href="sound-bites.html">SOUND BITES</a></li>
+            </ul>
+          </nav>
         </div>
-    </body>
+      </header>
+      <div class="container">
+        <div class="header">
+          <div class="header-content">
+            <h1 class="Righteous-heading">Hidden Stories</h1>
+            <p class="Righteous-subheading">
+              Hong Kong Soundwalks by Sound Artists and Students
+            </p>
+          </div>
+        </div>
 
+
+          <!-- Section: Header -->
+          <section class="box">
+              <div class="text-box">
+                  <h2>Under Construction</h2>
+                  <p>
+                      <i>Hidden stories</i> is a captivating series of Soundwalk in Hong Kong, designed to document the auditory experiences crafted by various sound artists and students.
+                      In an age of rapid urbanization and digital distractions, "Hidden stories" serves as a reminder of being aware of the surroundings and what is happening. 
+                      <br>Sound is an omnipresent element of our environment, However, it often goes unnoticed, blending into the background of our busy lives.and we receive it every moment, but it occurs over times and unique. By engaging with these auditory journeys, participants can uncover the hidden stories embedded in the city's sound environment.
+                  </p>
+                  <hr>
+              </div>
+              <!-- List Section -->
+              <div class="listSection">
+                  <div class="leftSide" id="ProjectDetail">
+                      <!-- Artwork content will be displayed here -->
+                      <p>Click on an artwork title to see the content here.</p>
+                  </div>
+                  <div class="divider"></div> <!-- Vertical line divider -->
+                  <div class="rightSide">
+                      <div class="artist">
+                          <h3>3 Hours per Work Day</h3>
+                          <h5>by Giann Leung</h5>
+                          <p>Giann Leung is a sonic artist and multimedia creator currently pursuing a Bachelor of Arts and Technology at Hong Kong Baptist University. Based on her interest in playing games and watching movies, Giann explores how related media can bring viewers into the world of creators and how to bring laughter to players. Her work often blends field recordings, narrative storytelling, and interactive elements, which encourage audiences to join in her imaginary world and listen to the inner monologue of a small potato.</p>
+                          <p class="artwork-title" onclick="showProjectDetail(ProjectDetail1)" onmouseover="showProjectDetail(ProjectDetail1)">Project Details - 3 Hours per Work Day</p>
+                      </div>
+
+                      <hr>
+                      <div class="artist">
+                          <h3>Where did you go last night?</h3>
+                          <h5>by Chris Wong</h5>
+                          <p>Chris Wong is a fictional character often used in Hong Kong Diploma of Secondary Education (HKDSE) examination papers, particularly in English language papers. He typically appears in scenarios or dialogues that test students' comprehension, writing, and communication skills. The use of such characters helps create relatable and realistic contexts for students to engage with during the exams.</p>
+                          <p class="artwork-title" onclick="showProjectDetail(ProjectDetail_WhereDidYouGoLastNight)" onmouseover="showProjectDetail(ProjectDetail_WhereDidYouGoLastNight)">Project Details - Where did you go last night?</p>
+                      </div>
+                      <hr>
+                      <div class="artist">
+                          <h3>Where did you go last night?</h3>
+                          <p>by Chris Wong</p>
+                          <p>Chris Wong is a fictional character often used in Hong Kong Diploma of Secondary Education (HKDSE) examination papers, particularly in English language papers. He typically appears in scenarios or dialogues that test students' comprehension, writing, and communication skills. The use of such characters helps create relatable and realistic contexts for students to engage with during the exams.</p>
+                          <p class="artwork-title" onclick="showProjectDetail('Artwork Content of Artist 3')">Project Details </p>
+                          <!-- [Mouse Over Show] -->
+                      </div>
+                      <hr>
+                      <div class="artist">
+                          <h3>Poppy Cheng</h3>
+                          <p>Artist Statement</p>
+                          <p class="artwork-title" onclick="showArtworkContent('Artwork Content of Artist 3')">Artwork Title 3</p>
+                      </div>
+                      <hr>
+                      <div class="artist">
+                          <h3>March Kwok</h3>
+                          <p>Artist Statement</p>
+                          <p class="artwork-title" onclick="showArtworkContent('Artwork Content of Artist 2')">Artwork Title 2</p>
+                      </div>
+                  </div>
+          </section>
+
+          <script>
+              // Script -- Toggle Menu
+              var navLinks = document.getElementById("navLinks");
+              function showMenu() {
+              navLinks.style.right = "0";
+              }
+              function hideMenu() {
+              navLinks.style.right = "-200px";
+              }
+
+              // Script -- ArtworkDetail Content
+              const ProjectDetail1 = `
+                  <h2>3 Hours per Work Day</h2>
+                  <p>3 Hours per Work Day is a soundwalk inspired from daily life transportation, where time seems to be used on nothing meaningful and all the time is wasted during the ride. The work is adapted from personal daily experiences and reflections, which takes place on a real train ride to imitate Giann’s routine for travelling between school and home. It also uses a second-person perspective storytelling to allow the audience to experience the “wasted time” spent on long-distance traffic, feel the existence of time, and think about the use of time. It really is just a part of life that people don’t like that much, yet also is a place where she hides when she wants to “log out” of reality briefly.</p>
+                  <p>Additional details about the artwork, etc...</p>
+              `;
+              const ProjectDetail_WhereDidYouGoLastNight = `
+                  <h2>Where did you go last night?</h2>
+                  <p>It is about a non-exist person that keeps wandering around at school, and appearing especially when there are English Listening Test. This person always sign their name on letters or emails written by others. It is a story that happened at one night...</p>
+                  <p>Further exploration and background stories, etc...</p>
+                  <p>It is about a non-exist person that keeps wandering around at school, and appearing especially when there are English Listening Test. This person always sign their name on letters or emails written by others. It is a story that happened at one night...</p>
+                  <p>Further exploration and background stories, etc...</p>
+                  <p>It is about a non-exist person that keeps wandering around at school, and appearing especially when there are English Listening Test. This person always sign their name on letters or emails written by others. It is a story that happened at one night...</p>
+                  <p>Further exploration and background stories, etc...</p>
+                  <p>It is about a non-exist person that keeps wandering around at school, and appearing especially when there are English Listening Test. This person always sign their name on letters or emails written by others. It is a story that happened at one night...</p>
+                  <p>Further exploration and background stories, etc...</p>
+                  <p>It is about a non-exist person that keeps wandering around at school, and appearing especially when there are English Listening Test. This person always sign their name on letters or emails written by others. It is a story that happened at one night...</p>
+                  <p>Further exploration and background stories, etc...</p>
+                  <p>It is about a non-exist person that keeps wandering around at school, and appearing especially when there are English Listening Test. This person always sign their name on letters or emails written by others. It is a story that happened at one night...</p>
+                  <p>Further exploration and background stories, etc...</p>
+              `;
+              // Script -- showLeftsideContent
+              function showProjectDetail(content) {
+              document.getElementById('ProjectDetail').innerHTML = content;
+              }
+          </script>
+      </div>
+  </body>
 </html>
