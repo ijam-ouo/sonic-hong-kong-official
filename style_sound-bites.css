@@ -137,7 +137,7 @@ div {
 .Righteous-heading {
   font-family: "Righteous", serif;
   font-weight: 900;
-  color: #e0b1cbff;
+  /* color: #e0b1cbff; */
   color: #e72f58;
   font-size: 90px;
   line-height: 100px;
