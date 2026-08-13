@@ -1,0 +1,1454 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Sound Bites - Research Findings</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Saira+Condensed:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      html {
+        overflow-y: scroll;
+      }
+      body {
+        background-color: #0a0a0e;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        min-height: 100vh;
+        overflow-x: hidden;
+        font-family: "PingFang HK", "Inter", "Noto Sans TC", sans-serif;
+      }
+
+      .hero-section {
+        position: relative;
+        width: 100%;
+        min-height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 100px 20px 40px 20px;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("images/dp_SoundBite2.jpg");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.35;
+        z-index: 1;
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 1) 65%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 1) 65%,
+          rgba(0, 0, 0, 0) 100%
+        );
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .main-title {
+        font-family: "Saira Condensed", sans-serif;
+        font-size: 90px;
+        font-weight: 700;
+        color: #fff;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 6px;
+        text-shadow:
+          0 0 4px #fff,
+          0 0 10px #fff,
+          0 0 20px #00e5ff,
+          0 0 40px #00e5ff,
+          0 0 80px #00e5ff,
+          0 0 120px #00e5ff;
+        line-height: 1;
+      }
+
+      .sub-title {
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        color: #fff;
+        margin: 18px 0 0 0;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        line-height: 24px;
+        text-shadow:
+          0 0 4px #fff,
+          0 0 8px #fff,
+          0 0 15px #ff007f,
+          0 0 35px #ff007f,
+          0 0 70px #ff007f;
+        opacity: 0.95;
+      }
+
+      .sub-title-hk {
+        margin-top: 0px !important;
+        font-size: 28px;
+        text-shadow:
+          0 0 4px #fff,
+          0 0 10px #fff,
+          0 0 20px #00e5ff,
+          0 0 40px #00e5ff,
+          0 0 80px #00e5ff,
+          0 0 120px #00e5ff;
+      }
+
+      .intro-text {
+        font-size: 18px;
+        line-height: 2;
+        color: #e0e0e0;
+        margin-top: 40px;
+        letter-spacing: 1.2px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        background: rgba(10, 10, 14, 0.65);
+        padding: 30px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(5px);
+      }
+
+      .vocab-section-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px 24px;
+        position: relative;
+        z-index: 10;
+      }
+
+      .vocab-box {
+        background: rgba(12, 12, 18, 0.85);
+        border-radius: 16px;
+        border: 1.5px solid rgba(255, 0, 127, 0.3);
+        box-shadow: 0 10px 30px rgba(255, 0, 127, 0.05);
+        padding: 35px;
+      }
+
+      .sort-btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 25px 0;
+      }
+
+      .sort-btn {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #cccccc;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+      }
+
+      .sort-btn:hover {
+        border-color: #00e5ff;
+        color: #00e5ff;
+        box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+      }
+
+      .sort-btn.active {
+        background: rgba(255, 0, 127, 0.1);
+        border-color: #ff007f;
+        color: #ffffff;
+        text-shadow: 0 0 5px #fff;
+        box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+      }
+
+      .vocab-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px;
+        margin-top: 20px;
+        max-height: 650px;
+        overflow-y: auto;
+        padding-right: 8px;
+      }
+
+      .vocab-grid::-webkit-scrollbar {
+        width: 6px;
+      }
+      .vocab-grid::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .vocab-grid::-webkit-scrollbar-thumb {
+        background: rgba(255, 0, 127, 0.3);
+        border-radius: 3px;
+      }
+      .vocab-grid::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 0, 127, 0.6);
+      }
+
+      .audio-btn {
+        background: none;
+        border: none;
+        color: #00e5ff;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 4px;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .audio-btn:hover {
+        color: #ff007f;
+        transform: scale(1.2);
+        text-shadow: 0 0 8px #ff007f;
+      }
+      /* 當語音正在播放時的發光效果 */
+      .audio-btn.playing {
+        color: #ff007f;
+        animation: pulse 1s infinite alternate;
+      }
+      @keyframes pulse {
+        from {
+          text-shadow: 0 0 4px #ff007f;
+        }
+        to {
+          text-shadow:
+            0 0 14px #ff007f,
+            0 0 20px #ff007f;
+        }
+      }
+
+      .mini-vocab-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all 0.25s ease;
+      }
+
+      .mini-vocab-card:hover {
+        border-color: rgba(0, 229, 255, 0.3);
+        background: rgba(255, 255, 255, 0.04);
+        transform: translateY(-2px);
+      }
+
+      .mini-badge {
+        font-size: 11px;
+        font-family: "Inter", sans-serif;
+        color: #888888;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+
+      .research-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 24px;
+        position: relative;
+        z-index: 10;
+      }
+
+      .data-row {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 60px;
+        background: rgba(15, 15, 22, 0.8);
+        border-radius: 16px;
+        border: 1.5px solid rgba(0, 229, 255, 0.2);
+        box-shadow: 0 10px 30px rgba(0, 229, 255, 0.05);
+        padding: 35px;
+        transition: all 0.3s ease;
+      }
+
+      .data-row.pink-style {
+        border: 1.5px solid rgba(255, 0, 127, 0.2);
+        box-shadow: 0 10px 30px rgba(255, 0, 127, 0.05);
+      }
+
+      .data-row:hover {
+        transform: translateY(-5px);
+      }
+      .data-visual {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .data-visual img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: zoom-in;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .data-visual img:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+      }
+      .data-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .data-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+      }
+      .data-title.cyan {
+        color: #00e5ff;
+        text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
+      }
+      .data-title.pink {
+        color: #ff007f;
+        text-shadow: 0 0 8px rgba(255, 0, 127, 0.4);
+      }
+      .data-desc {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #cccccc;
+        margin: 0;
+      }
+
+      .lightbox-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(5, 5, 8, 0.95);
+        z-index: 99999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        cursor: zoom-out;
+      }
+      .lightbox-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .lightbox-img {
+        max-width: 90vw;
+        max-height: 85vh;
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.15);
+        transform: scale(0.9);
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+      .lightbox-overlay.active .lightbox-img {
+        transform: scale(1);
+      }
+
+      .footer-info-section {
+        max-width: 800px;
+        margin: 80px auto 120px auto;
+        padding: 40px 24px;
+        text-align: center;
+        color: #ffffff;
+        position: relative;
+        z-index: 1000;
+        background: rgba(10, 10, 15, 0.85);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+      }
+      .footer-intro-text {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #cccccc;
+        margin-bottom: 40px;
+        letter-spacing: 1px;
+      }
+      .footer-row {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+        align-items: center;
+        justify-content: center;
+      }
+      .footer-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-sub-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0 0 15px 0;
+        color: #ffffff;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+      .title-neonmap {
+        text-shadow: 0 0 8px rgba(77, 255, 0, 0.6);
+      }
+      .title-research {
+        text-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+      }
+      .title-join {
+        text-shadow: 0 0 8px rgba(255, 0, 127, 0.6);
+      }
+      .footer-link-btn {
+        display: inline-block;
+        padding: 10px 28px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        letter-spacing: 1px;
+        background: rgba(255, 255, 255, 0.05);
+      }
+      .btn-neonmap {
+        border: 1.5px solid #4dff00;
+        box-shadow: 0 0 10px rgba(77, 255, 0, 0.15);
+      }
+      .btn-neonmap:hover {
+        background: #4dff00;
+        color: #000000;
+        box-shadow: 0 0 20px rgba(77, 255, 0, 0.6);
+        transform: translateY(-2px);
+      }
+      .btn-research {
+        border: 1.5px solid #00e5ff;
+        box-shadow: 0 0 10px rgba(0, 229, 255, 0.15);
+      }
+      .btn-research:hover {
+        background: #00e5ff;
+        color: #000000;
+        box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+        transform: translateY(-2px);
+      }
+      .btn-join {
+        border: 1.5px solid #ff007f;
+        box-shadow: 0 0 10px rgba(255, 0, 127, 0.15);
+      }
+      .btn-join:hover {
+        background: #ff007f;
+        color: #ffffff;
+        box-shadow: 0 0 20px rgba(255, 0, 127, 0.6);
+        transform: translateY(-2px);
+      }
+
+      @media (min-width: 768px) {
+        .data-row {
+          flex-direction: row;
+          gap: 50px;
+        }
+        .data-visual {
+          flex: 1;
+        }
+        .data-content {
+          flex: 1;
+        }
+        .data-row.reverse {
+          flex-direction: row-reverse;
+        }
+        .footer-row {
+          flex-direction: row;
+          gap: 50px;
+          align-items: flex-start;
+        }
+        .footer-card {
+          flex: 1;
+        }
+      }
+      @media (max-width: 768px) {
+        .hero-section {
+          padding-top: 100px;
+          min-height: auto;
+        }
+        .main-title {
+          font-size: 52px;
+          letter-spacing: 3px;
+        }
+        .sub-title {
+          font-size: 18px;
+          letter-spacing: 2px;
+          margin-top: 12px;
+        }
+        .sub-title-hk {
+          font-size: 16px !important;
+          margin-top: 0px !important;
+        }
+        .intro-text {
+          font-size: 15px;
+          padding: 20px;
+          line-height: 1.8;
+        }
+      }
+
+      /* ==========================================
+      全域樣式與導覽列：統一暗色系高質感
+      ========================================== */
+      header.sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 14, 0.85);
+        backdrop-filter: blur(12px);
+        z-index: 10000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .navbar {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 10px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+      }
+
+      .logo {
+        height: 60px;
+        cursor: pointer;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #cccccc;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        transition:
+          color 0.3s ease,
+          text-shadow 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: #00e5ff;
+        text-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+      }
+
+      /* Dropdown 選單全域樣式 */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(10, 10, 15, 0.95);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(0, 229, 255, 0.3);
+        box-shadow:
+          0 8px 25px rgba(0, 0, 0, 0.8),
+          0 0 15px rgba(0, 229, 255, 0.2);
+        border-radius: 8px;
+        min-width: 160px;
+        padding: 8px 0;
+        z-index: 10001;
+        list-style: none;
+        margin-top: 0; /* 1. 建議改成 0，避免產生縫隙 */
+      }
+      .dropdown-menu::before {
+        content: "";
+        position: absolute;
+        top: -15px; /* 向頂部延伸 15px 墊高緩衝區 */
+        left: 0;
+        width: 100%;
+        height: 15px;
+      }
+
+      /* 懸停或選單獲取焦點時顯示 */
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      .dropdown-menu li {
+        width: 100%;
+        margin: 0;
+      }
+
+      .dropdown-menu li a {
+        display: block;
+        padding: 10px 16px;
+        color: #cccccc;
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-menu li a:hover {
+        background: rgba(0, 229, 255, 0.1);
+        color: #00e5ff;
+        text-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+      }
+
+      /* 當前所在頁面高亮標示 */
+      .dropdown-menu li a.active-subpage {
+        color: #ff007f !important;
+        text-shadow: 0 0 8px rgba(255, 0, 127, 0.6) !important;
+        font-weight: bold;
+      }
+
+      /* Sound Bites 當前選中的亮燈狀態 */
+      nav ul li.dropdown > a.active-parent {
+        color: #00e5ff;
+        text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="sticky">
+      <div class="navbar">
+        <a href="index.html">
+          <img
+            src="images/Logo-w.png"
+            class="logo"
+            alt="Sonic Hong Kong Logo"
+          />
+        </a>
+        <nav>
+          <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about-us.html">ABOUT US</a></li>
+
+            <!-- 下拉選單：Sound Bites -->
+            <li class="dropdown">
+              <a href="sound-bites-joinus.html" class="active-parent"
+                >SOUND BITES ▼</a
+              >
+              <ul class="dropdown-menu">
+                <li><a href="sound-bites-favexpressions.html">Favourite Expressions</a></li>
+                <li>
+                  <a href="sound-bites-research.html" class="active-subpage"
+                    >Research</a
+                  >
+                </li>
+                <li><a href="sound-bites-joinus.html">Join Us</a></li>
+              </ul>
+            </li>
+
+            <li><a href="hidden-stories.html">HIDDEN STORIES</a></li>
+            <li><a href="sunday-voices.html">SUNDAY VOICES</a></li>
+            <li><a href="sonic-youth.html">SONIC YOUTH</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="hero-section">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <h1 class="main-title">Sound Bites</h1>
+        <p class="sub-title sub-title-hk">Hong Kong</p>
+        <p class="sub-title">
+          Community Archive of Favourite Cantonese Expressions
+        </p>
+        <p class="sub-title" style="margin-top:65px; font-size: 35px; font-weight:400;">Data Analysis</p>
+          
+        </p>
+      </div>
+    </div>
+
+    <div class="vocab-section-container">
+      <div class="vocab-box">
+        <h3 class="data-title pink" style="margin-bottom: 8px">
+          List of Favorite Expressions
+        </h3>
+        <p class="data-desc" style="font-size: 14px; opacity: 0.8">
+          Archive compiled from 71 respondents. Use the buttons below to sort
+          the list dynamically.
+        </p>
+
+        <div class="sort-btn-group">
+          <button
+            class="sort-btn active"
+            onclick="changeSort(event, 'strokes')"
+          >
+            靠詞彙筆劃數 (Stroke Count)
+          </button>
+          <button class="sort-btn" onclick="changeSort(event, 'pinyin')">
+            粵拼順序 (Jyutping A-Z)
+          </button>
+          <button class="sort-btn" onclick="changeSort(event, 'count')">
+            出現次數 (Frequency)
+          </button>
+        </div>
+
+        <div class="vocab-grid" id="orderedVocabGrid"></div>
+      </div>
+    </div>
+
+    <div class="research-container">
+      <div class="data-row">
+        <div class="data-visual">
+          <img
+            src="images/research_img1.jpg"
+            class="zoomable-img"
+            alt="Cantonese Keyword Analysis Chart"
+          />
+        </div>
+        <div class="data-content">
+          <h3 class="data-title cyan">Types of Favorite Words</h3>
+          <p class="data-desc">
+            The results from the initial data of 74 participants shows that 34
+            percent choose swear words as their favorite expression, 60 percent
+            chose other regular expressions, and 5 percent named words particles
+            that adds expressiveness of a sentence as their favorite Cantonese
+            expression.
+          </p>
+        </div>
+      </div>
+
+      <div class="data-row pink-style reverse">
+        <div class="data-visual">
+          <img
+            src="images/research_img2.jpg"
+            class="zoomable-img"
+            alt="Types of Favorite Words Analysis Chart"
+          />
+        </div>
+        <div class="data-content">
+          <h3 class="data-title pink">Significance of Cantonese by Keywords</h3>
+          <p class="data-desc">
+            We asked our participant what the significance of Cantonese is from
+            a linguistic or personal standpoint. We analyzed the results
+            qualitatively and created related keywords from studying their
+            responses. Majority expressed more than one significance.
+            <br /><br />The participants commonly identify rich tonalities, high
+            expressiveness, and a sense of belonging as the significant
+            characteristics. Furthermore, fear of disappearance, humor,
+            meanness, fun to swear, difference between written and spoken
+            Cantonese were also identified.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="lightbox-overlay" id="lightboxOverlay">
+      <img class="lightbox-img" id="lightboxImg" src="" alt="Zoomed Image" />
+    </div>
+
+    <div class="footer-info-section">
+      <p class="footer-intro-text">
+        <i>"Sound Bites"</i> is a community based research project dedicated to
+        collecting, recording, and preserving distinctive Cantonese soundscape
+        of Hong Kong. Our archive features favorite Cantonese expressions of
+        Hongkongers from various background and ages. Through interactive,
+        illuminated neon sign visuals, we hope to convey these warm, humorous,
+        and historically significant everyday expressions to everyone. Click on
+        any sign to hear the authentic street pronunciation and explanation.
+      </p>
+      <div class="footer-row">
+        <div class="footer-card">
+          <h3 class="footer-sub-title title-neonmap">
+            Explore Favourite Cantonese Expressions
+          </h3>
+          <a
+            href="sound-bites-favexpressions.html"
+            class="footer-link-btn btn-neonmap"
+            >Return to Interactive Map</a
+          >
+        </div>
+        <div class="footer-card">
+          <h3 class="footer-sub-title title-join">
+            Add your voice &<br />Be a part of the archive
+          </h3>
+          <a href="sound-bites-joinus.html" class="footer-link-btn btn-join"
+            >Join Us</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 1. 圖片燈箱控制
+      const zoomImages = document.querySelectorAll(".zoomable-img");
+      const overlay = document.getElementById("lightboxOverlay");
+      const lightboxImg = document.getElementById("lightboxImg");
+
+      zoomImages.forEach((img) => {
+        img.addEventListener("click", () => {
+          lightboxImg.src = img.src;
+          overlay.classList.add("active");
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      overlay.addEventListener("click", () => {
+        overlay.classList.remove("active");
+        document.body.style.overflow = "";
+        setTimeout(() => {
+          lightboxImg.src = "";
+        }, 400);
+      });
+
+      // ===================================================
+      // 2. 字彙即時分類排序引擎 + 真人音檔播放 (對接本地 audio/ 目錄)
+      // ===================================================
+      let currentSortMethod = "strokes";
+      let currentAudio = null; // 全域儲存當前播放的 Audio 物件
+      let currentActiveBtn = null; // 全域儲存當前播放的按鈕元素
+
+      // 💡 關鍵優化：已成功將主頁 data 的音檔陣列 (audios) 與此處對齊
+      const rawVocabList = [
+        {
+          word: "屌",
+          pinyin: "diu2",
+          meaning: "fuck",
+          category: "Swear words",
+          strokes: 9,
+          count: 7,
+          audios: ["Karl_diu2.wav", "Elyse_diu2.wav"],
+        },
+        {
+          word: "屌你老母",
+          pinyin: "diu2 nei5 lou5 mou5",
+          meaning: "fuck your mum",
+          category: "Swear words",
+          strokes: 9,
+          count: 3,
+          audios: [
+            "浩阳_diu2nei5lou5mou5.wav",
+            "Yiuyu_diu2 nei5 lou5 mou5.wav",
+          ],
+        },
+        {
+          word: "加油",
+          pinyin: "ga1 yau5",
+          meaning: "cheers",
+          category: "Others",
+          strokes: 5,
+          count: 2,
+          audios: ["Kachi_ga1 yau5.wav"],
+        },
+        {
+          word: "傻閪",
+          pinyin: "so4 hai1",
+          meaning: "dumbass",
+          category: "Swear words",
+          strokes: 13,
+          count: 1,
+          audios: ["Chris_SoHai.wav"],
+        },
+        {
+          word: "頂你個肺",
+          pinyin: "ding2 nei5 go3 fai3",
+          meaning: "elbow your lung",
+          category: "Swear words",
+          strokes: 11,
+          count: 1,
+          audios: ["Riley_ding2nei5go3fai3.wav"],
+        },
+        {
+          word: "早晨",
+          pinyin: "zou2 san4",
+          meaning: "good morning",
+          category: "Others",
+          strokes: 6,
+          count: 1,
+          audios: [],
+        },
+        {
+          word: "含 含撚",
+          pinyin: "ham4 lan2",
+          meaning: "Blow job, something bad happened",
+          category: "Swear words",
+          strokes: 7,
+          count: 1,
+          audios: [],
+        },
+        {
+          word: "屌你",
+          pinyin: "diu2 nei5",
+          meaning: "fuck you",
+          category: "Swear words",
+          strokes: 9,
+          count: 1,
+          audios: [],
+        },
+        {
+          word: "濕濕碎",
+          pinyin: "sap1 sap1 seoi3",
+          meaning: "easy job",
+          category: "Others",
+          strokes: 17,
+          count: 1,
+          audios: [],
+        },
+        {
+          word: "心靜自然涼",
+          pinyin: "sam1 zing6 zi6jin4 loeng4",
+          meaning: "Peace of mind, cool heart",
+          category: "Others",
+          strokes: 4,
+          count: 1,
+          audios: [],
+        },
+        {
+          word: "一仆一碌",
+          pinyin: "jat1 puk1 jat1 luk1",
+          meaning: "stumbling and very embarrassed when walking.",
+          category: "Others",
+          strokes: 1,
+          count: 1,
+          audios: [],
+        },
+        {
+          word: "爛gag",
+          pinyin: "laan6 gag",
+          meaning: "dry humour",
+          category: "Others",
+          strokes: 21,
+          count: 1,
+          audios: [],
+        },
+        {
+          word: "靚仔靚女",
+          pinyin: "leng3 zai2 leng3 neoi2",
+          meaning: "beautiful and handsome",
+          category: "Others",
+          strokes: 15,
+          count: 1,
+          audios: [],
+        },
+        {
+          word: "搞搞震",
+          pinyin: "gaau2 gaau2 zan3",
+          meaning: "make a fuss",
+          category: "Others",
+          strokes: 13,
+          count: 1,
+          audios: [],
+        },
+        {
+          word: "仆街",
+          pinyin: "puk1 gaai1",
+          meaning: "fall down",
+          category: "Swear words",
+          strokes: 5,
+          count: 1,
+          audios: [],
+        },
+        {
+          word: "做乜撚嘢",
+          pinyin: "zou6 mat1 nan2 je5",
+          meaning: "what the fuck are you doing",
+          category: "Swear words",
+          strokes: 11,
+          count: 1,
+          audios: [],
+        },
+        {
+          word: "hea",
+          pinyin: "hea",
+          meaning: "relaxing / loitering",
+          category: "Others",
+          strokes: 1,
+          count: 1,
+          audios: [],
+        },
+        {
+          word: "師兄啊",
+          pinyin: "Si1 hing1 aa1",
+          meaning: "brotherrrrrr",
+          category: "Others",
+          strokes: 10,
+          count: 1,
+          audios: ["Hardy_Si1hing1aa1.wav"],
+        },
+        {
+          word: "死唔去",
+          pinyin: "sei2 m4 höy3",
+          meaning: "it wont die",
+          category: "Others",
+          strokes: 6,
+          count: 1,
+          audios: ["Wing_sei2 m4 höy3.wav"],
+        },
+        {
+          word: "要割禾就先要彎腰",
+          pinyin: "jiu3 gut6 wo4 zau6 sin1 jiu3 waan1 jiu1",
+          meaning: "To harvest rice, you must first bend over.",
+          category: "Others",
+          strokes: 9,
+          count: 1,
+          audios: ["Ali_jiu3gut6wo4zau6sin1jiu3waan1jiu1.wav"],
+        },
+        {
+          word: "係咁啦",
+          pinyin: "hai6 gam2 laa1",
+          meaning: "this is the way it is",
+          category: "Others",
+          strokes: 9,
+          count: 1,
+          audios: ["Jon_hai6gam2laa1.wav"],
+        },
+        {
+          word: "一蚊一斤龜 七蚊一斤雞",
+          pinyin: "jat1 man1 jat1 gan1 gwai1, cat1 man1 jat1 gan1 gai1",
+          meaning:
+            "One dollar a pound of turtle, seven dollars a pound of chicken",
+          category: "Others",
+          strokes: 1,
+          count: 1,
+          audios: [
+            "Daniel_jat1 man1 jat1 gan1 gwai1_cat1 man1 jat1 gan1 gai1.wav",
+          ],
+        },
+        {
+          word: "頂你",
+          pinyin: "ding2 nei5",
+          meaning: "damn you",
+          category: "Swear words",
+          strokes: 11,
+          count: 1,
+          audios: ["Poyin_ding2 nei5.wav"],
+        },
+        {
+          word: "大癲",
+          pinyin: "daai6 din1",
+          meaning: "describe something is very crazy.",
+          category: "Others",
+          strokes: 3,
+          count: 1,
+          audios: ["Pakto_daai6din1.wav"],
+        },
+        {
+          word: "吓",
+          pinyin: "haa1",
+          meaning: "what?/huh?",
+          category: "Particles",
+          strokes: 3,
+          count: 1,
+          audios: ["Holley_haa2.wav"],
+        },
+        {
+          word: "食飯",
+          pinyin: "sik6 faan6",
+          meaning: "eat rice",
+          category: "Others",
+          strokes: 9,
+          count: 1,
+          audios: ["Kristen_sik6 faan6.wav"],
+        },
+        {
+          word: "我唔想返工啊",
+          pinyin: "ngo5 m4 soeng2 faan2 gung1 aa3",
+          meaning: "I dont want to go to work",
+          category: "Others",
+          strokes: 7,
+          count: 1,
+          audios: ["Winifred_ngo5 m4 soeng2 faan2 gung1 aa3.wav"],
+        },
+        {
+          word: "行啦，起得",
+          pinyin: "haang4 laa1, hei2 dak1",
+          meaning: "Let's go",
+          category: "Others",
+          strokes: 6,
+          count: 1,
+          audios: ["Zoe_haang4laa1_hei2dak1.wav"],
+        },
+        {
+          word: "靜靜雞/靜雞雞",
+          pinyin: "zing6 zing2 gai1/zing6 gai1 gai1",
+          meaning: "secrely (doing sth)",
+          category: "Others",
+          strokes: 16,
+          count: 1,
+          audios: ["Candy_zing6 zing2 gai1_zing6 gai1 gai1.wav"],
+        },
+        {
+          word: "你好靚女",
+          pinyin: "nei5 hou2 leng3 neoi5",
+          meaning: "you're very pretty",
+          category: "Others",
+          strokes: 7,
+          count: 1,
+          audios: ["Nicole_nei5hou2leng3neoi5.wav"],
+        },
+        {
+          word: "唔緊要",
+          pinyin: "m4 gan2 jiu3",
+          meaning: "it doesn't matter/no worries.",
+          category: "Others",
+          strokes: 12,
+          count: 1,
+          audios: ["Maggie_m4 gan2 jiu3.wav"],
+        },
+        {
+          word: "黐線",
+          pinyin: "ci1 sin3",
+          meaning: "maniac",
+          category: "Swear words",
+          strokes: 22,
+          count: 1,
+          audios: ["Kairos_ci1sin3.wav", "Carson_ci1 sin3.wav"],
+        },
+        {
+          word: "唉！是但",
+          pinyin: "aai1,si6daan6",
+          meaning: "Whatever (not obsessed with what is in front of you)",
+          category: "Others",
+          strokes: 10,
+          count: 1,
+          audios: ["Mushroom_aai1_si6daan6.wav"],
+        },
+        {
+          word: "唔該",
+          pinyin: "m4 goi1",
+          meaning: "Thank you",
+          category: "Others",
+          strokes: 12,
+          count: 1,
+          audios: ["Yuki_m4 goi1.wav"],
+        },
+        {
+          word: "你幾靚喎",
+          pinyin: "nei5 gei2 leng3 wo3",
+          meaning: "You’re quite pretty",
+          category: "Others",
+          strokes: 7,
+          count: 1,
+          audios: ["Uncle01_nei5gei2leng3wo3.wav"],
+        },
+        {
+          word: "你好",
+          pinyin: "nei5 hou2",
+          meaning: "Hello",
+          category: "Others",
+          strokes: 7,
+          count: 1,
+          audios: ["Uncle02_nei5 hou2.wav"],
+        },
+        {
+          word: "褦襶",
+          pinyin: "le5 de2",
+          meaning: "a bit lazy, careless, or sloppy in the way they do things",
+          category: "Others",
+          strokes: 19,
+          count: 1,
+          audios: ["Vincent_le5 fe2.wav"],
+        },
+        {
+          word: "嘩，好開心呀。",
+          pinyin: "waa1, hou2 hoi1 sam1 aa3",
+          meaning: "Wow, I’m so happy!",
+          category: "Others",
+          strokes: 14,
+          count: 1,
+          audios: ["Curtis_waa1_hou2 hoi1 sam1 aa3.wav"],
+        },
+        {
+          word: "乜嘢呀",
+          pinyin: "mat1 je5 aa3",
+          meaning:
+            "to ask what something is, or sometimes to show surprise, confusion, or disbelief depending on the tone.",
+          category: "Others",
+          strokes: 3,
+          count: 1,
+          audios: ["黑蛋_mat1 je5 aa3.wav"],
+        },
+        {
+          word: "咩/咩話",
+          pinyin: "me1/me1 waa6",
+          meaning: "what",
+          category: "Others",
+          strokes: 9,
+          count: 1,
+          audios: ["Nick_me1_me1 waa6.wav"],
+        },
+        {
+          word: "冚唪唥",
+          pinyin: "ham6 baang6 laang6",
+          meaning: '“all” or “everything"',
+          category: "Others",
+          strokes: 5,
+          count: 1,
+          audios: ["Larry_ham6 baang6 laang6.wav"],
+        },
+        {
+          word: "添",
+          pinyin: "tim1",
+          meaning: "sentence-final particles",
+          category: "Particles",
+          strokes: 11,
+          count: 1,
+          audios: ["Yolanda_tim1.wav"],
+        },
+        {
+          word: "擔屎唔偷食",
+          pinyin: "daam1 si2 m4 tau1 sik6",
+          meaning: "describe someone as very honest",
+          category: "Others",
+          strokes: 16,
+          count: 1,
+          audios: ["Michael_daam1 si2 m4 tau1 sik6.wav"],
+        },
+        {
+          word: "乖",
+          pinyin: "gwaai1",
+          meaning: "good",
+          category: "Others",
+          strokes: 8,
+          count: 1,
+          audios: ["Pat_gwaai1.wav"],
+        },
+        {
+          word: "啦",
+          pinyin: "laa1",
+          meaning: "sentence-final particles",
+          category: "Particles",
+          strokes: 11,
+          count: 1,
+          audios: ["Marco_laa1.wav"],
+        },
+        {
+          word: "收到",
+          pinyin: "sau1 dou2",
+          meaning: "copy/ undersatnd / got it",
+          category: "Others",
+          strokes: 6,
+          count: 1,
+          audios: ["Jolie_sau1 dou2.wav"],
+        },
+        {
+          word: "雞同鴨講",
+          pinyin: "gai1 tung4 aap3 gong2",
+          meaning:
+            "chicken talking to a duck ( two people completely not on the same wavelength, talking past each other.)",
+          category: "Others",
+          strokes: 18,
+          count: 1,
+          audios: ["Benny_gai1 tung4 aap3 gong2.wav"],
+        },
+        {
+          word: "頂",
+          pinyin: "ding2",
+          meaning: "damn",
+          category: "Swear words",
+          strokes: 11,
+          count: 1,
+          audios: ["Janet_ding2.wav"],
+        },
+        {
+          word: "撚",
+          pinyin: "lan2",
+          meaning: "fuck",
+          category: "Swear words",
+          strokes: 15,
+          count: 1,
+          audios: ["彥同_lan2.wav"],
+        },
+        {
+          word: "唔該曬",
+          pinyin: "m4 goi1 saai3",
+          meaning: "Thanks a lot",
+          category: "Others",
+          strokes: 12,
+          count: 1,
+          audios: ["Vincent_m4goi1saai3.wav"],
+        },
+        {
+          word: "講經咩",
+          pinyin: "gong2 ging1 me1",
+          meaning: "talking nonsense",
+          category: "Others",
+          strokes: 17,
+          count: 1,
+          audios: ["Tung_gong2ging1me1.wav"],
+        },
+        {
+          word: "卷土從來",
+          pinyin: "gyun2 tou2 cung4 loi4",
+          meaning: "Come back stronger after a setback.",
+          category: "Others",
+          strokes: 8,
+          count: 1,
+          audios: ["Katie_gyun2 tou2 cung4 loi4.wav"],
+        },
+        {
+          word: "聽日見",
+          pinyin: "ting1 jat6 gin3",
+          meaning: "See you tomorrow",
+          category: "Others",
+          strokes: 22,
+          count: 1,
+          audios: ["Kitty_ting1 jat6 gin3.wav"],
+        },
+        {
+          word: "你食飽未？",
+          pinyin: "nei5 sik6 baau2 mei6",
+          meaning: "Have you eaten yet?",
+          category: "Others",
+          strokes: 7,
+          count: 1,
+          audios: ["Gigi_s Grandma_nei5 sik6 baau2 mei6.wav"],
+        },
+        {
+          word: "好的",
+          pinyin: "hou2dik1",
+          meaning: "Okay",
+          category: "Others",
+          strokes: 6,
+          count: 1,
+          audios: ["Gigi_s auntie_hou2dik1.wav"],
+        },
+      ];
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderSortedGrid();
+      });
+
+      function changeSort(e, method) {
+        currentSortMethod = method;
+        const buttons = document.querySelectorAll(".sort-btn");
+        buttons.forEach((btn) => btn.classList.remove("active"));
+
+        if (e && e.currentTarget) {
+          e.currentTarget.classList.add("active");
+        }
+        renderSortedGrid();
+      }
+
+      // 💡 引入主頁核心播放邏輯：直接播放 audio/ 資料夾內的音檔，並加入發光特效
+      function playWordAudio(audioPath, btnElement) {
+        if (!audioPath || audioPath.trim() === "" || audioPath === "0") return;
+
+        // 如果當前有音檔在播，先停止
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+        }
+
+        // 移除所有按鈕的正在播放狀態
+        document
+          .querySelectorAll(".audio-btn")
+          .forEach((btn) => btn.classList.remove("playing"));
+
+        // 初始化並播放本地音檔
+        currentAudio = new Audio("audio/" + audioPath);
+        currentActiveBtn = btnElement;
+        currentActiveBtn.classList.add("playing");
+
+        currentAudio.addEventListener("ended", () => {
+          currentActiveBtn.classList.remove("playing");
+          currentAudio = null;
+          currentActiveBtn = null;
+        });
+
+        currentAudio.play().catch((e) => {
+          console.error("音檔播放失敗:", e);
+          currentActiveBtn.classList.remove("playing");
+        });
+      }
+
+      function renderSortedGrid() {
+        const gridContainer = document.getElementById("orderedVocabGrid");
+        if (!gridContainer) return;
+
+        gridContainer.innerHTML = "";
+        let sortedList = [...rawVocabList];
+
+        if (currentSortMethod === "strokes") {
+          sortedList.sort((a, b) => (a.strokes || 0) - (b.strokes || 0));
+        } else if (currentSortMethod === "pinyin") {
+          sortedList.sort((a, b) => {
+            const pyA = (a.pinyin || "").toLowerCase();
+            const pyB = (b.pinyin || "").toLowerCase();
+            return pyA.localeCompare(pyB);
+          });
+        } else if (currentSortMethod === "count") {
+          sortedList.sort((a, b) => (b.count || 0) - (a.count || 0));
+        }
+
+        sortedList.forEach((item) => {
+          const card = document.createElement("div");
+          card.className = "mini-vocab-card";
+
+          let badgeInfo = "";
+          if (currentSortMethod === "strokes")
+            badgeInfo = `${item.strokes || 0} 劃`;
+          if (currentSortMethod === "pinyin")
+            badgeInfo = (item.pinyin || "").split(" ")[0];
+          if (currentSortMethod === "count")
+            badgeInfo = `提及 ${item.count || 1} 次`;
+
+          // 判斷該字彙是否有對應的錄音檔案
+          const hasAudio = item.audios && item.audios.length > 0;
+          // 若有複數音檔，預設播放第一個 [0]
+          const targetAudio = hasAudio ? item.audios[0] : "";
+
+          card.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+              <div style="font-size: 18px; font-weight: bold; color: #00e5ff;">${item.word}</div>
+              ${
+                hasAudio
+                  ? `<button class="audio-btn" onclick="playWordAudio('${targetAudio}', this)" title="點擊收聽真人錄音">🔊</button>`
+                  : `<button class="audio-btn" style="opacity: 0.2; cursor: not-allowed;" title="暫無錄音">🔇</button>`
+              }
+            </div>
+            <div style="font-size: 12px; color: #cccccc; margin-bottom: 8px; font-style: italic;">${item.meaning || "—"}</div>
+            <div style="display: flex; justify-content: flex-end;">
+              <span class="mini-badge">${badgeInfo}</span>
+            </div>
+          `;
+          gridContainer.appendChild(card);
+        });
+      }
+    </script>
+  </body>
+</html>

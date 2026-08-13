@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sound Bites - Neon Map</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Saira+Condensed:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #0a0a0e;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            min-height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-family: "PingFang HK", "Noto Serif TC", serif;
+        }
+
+        /* ====== 全域樣式與導覽列 ====== */
+        header.sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 14, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 10000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            height: 60px;
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #cccccc;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #00e5ff;
+            text-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+        }
+
+        /* Dropdown 選單樣式 */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 229, 255, 0.2);
+            border-radius: 8px;
+            min-width: 160px;
+            padding: 8px 0;
+            z-index: 10001;
+            list-style: none;
+            margin-top: 0;
+        }
+        
+        .dropdown-menu::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            width: 100%;
+            margin: 0;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 16px;
+            color: #cccccc;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-menu li a:hover {
+            background: rgba(0, 229, 255, 0.1);
+            color: #00e5ff;
+            text-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+        }
+
+        .dropdown-menu li a.active-subpage {
+            color: #ff007f !important;
+            text-shadow: 0 0 8px rgba(255, 0, 127, 0.6) !important;
+            font-weight: bold;
+        }
+
+        nav ul li.dropdown > a.active-parent {
+            color: #00e5ff;
+            text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+        }
+
+        /* ====== Hero / Header 樣式 ====== */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 100px 20px 40px 20px;
+            z-index: 1;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("images/dp_SoundBite2.jpg");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1; /* 保留原先 neon-map 接近透明的設定 */
+            z-index: 1;
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 65%, rgba(0, 0, 0, 0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 65%, rgba(0, 0, 0, 0) 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            pointer-events: none;
+        }
+        
+        .main-title {
+            font-family: "Saira Condensed", sans-serif;
+            font-size: 90px;
+            font-weight: 700;
+            color: #fff;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            text-shadow: 
+                0 0 4px #fff, 
+                0 0 10px #fff, 
+                0 0 20px #00e5ff, 
+                0 0 40px #00e5ff, 
+                0 0 80px #00e5ff, 
+                0 0 120px #00e5ff;
+            line-height: 1;
+        }
+        
+        .sub-title {
+            font-family: "Inter", sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #fff;
+            margin: 18px 0 0 0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            line-height: 24px;
+            text-shadow: 
+                0 0 4px #fff, 
+                0 0 8px #fff, 
+                0 0 15px #ff007f, 
+                0 0 35px #ff007f, 
+                0 0 70px #ff007f;
+            opacity: 0.95;
+        }
+        
+        .sub-title-hk {
+            margin-top: 0px !important;
+            font-size: 28px;
+            text-shadow: 
+                0 0 4px #fff, 
+                0 0 10px #fff, 
+                0 0 20px #00e5ff, 
+                0 0 40px #00e5ff, 
+                0 0 80px #00e5ff, 
+                0 0 120px #00e5ff;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding-top: 100px;
+                min-height: auto;
+            }
+            .main-title {
+                font-size: 52px;
+                letter-spacing: 3px;
+            }
+            .sub-title {
+                font-size: 18px;
+                letter-spacing: 2px;
+                margin-top: 12px;
+            }
+            .sub-title-hk {
+                font-size: 16px !important;
+                margin-top: 0px !important;
+            }
+        }
+
+        /* ====== 地圖容器樣式 ====== */
+        #map-container {
+            position: relative;
+            width: 100%;
+            margin-top: 0;
+            box-sizing: border-box;
+        }
+        
+        #map-container.has-active .neon-board:not(.active) {
+            opacity: 0.35;                     
+            filter: blur(1px) grayscale(30%);  
+            pointer-events: none;              
+            transform: scale(0.85) !important; 
+        }
+
+        .neon-board {
+            position: absolute;
+            border-radius: 8px;
+            text-align: center;
+            box-sizing: border-box;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); 
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            z-index: 10;
+        }
+        .neon-board:hover {
+            transform: scale(1.05);
+            z-index: 100 !important;
+        }
+        .neon-board.active {
+            transform: scale(1.4) !important; 
+            z-index: 9999 !important;        
+            box-shadow: 0 0 30px #fff, inset 0 0 15px #fff !important; 
+        }
+        .neon-title { font-weight: 900; margin: 0; line-height: 1.2; white-space: nowrap; }
+        .neon-sub { margin-top: 4px; font-family: Arial, sans-serif; opacity: 0.8; white-space: nowrap; }
+        
+        .neon-meaning {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            margin-top: 0;
+            transition: all 0.4s ease;
+            white-space: pre-line;     
+            text-align: center;        
+            line-height: 1.4;          
+            letter-spacing: 1px;
+            word-break: break-word;    
+        }
+        
+        .neon-board.active .neon-meaning {
+            max-height: 300px;         
+            opacity: 1;
+            margin-top: 8px;
+            padding-top: 4px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.3);
+        }
+
+        .audio-container {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.4s ease;
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .neon-board.active .audio-container {
+            opacity: 1;
+            max-height: 120px;
+            margin-top: 6px;
+        }
+        
+        .play-btn {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.1s, border-color 0.2s;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+            margin: 4px 5px;
+        }
+        .play-btn:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+        .play-btn.playing {
+            border-color: #fff;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+        
+        .btn-progress {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.25);
+            z-index: 0;                  
+            transform: scaleX(0);        
+            transform-origin: left center;
+            transition: transform linear; 
+            pointer-events: none;        
+        }
+        
+        .btn-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-info-section {
+            max-width: 800px;
+            margin: 60px auto 100px auto;
+            padding: 40px 24px;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.85);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-intro-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #cccccc;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .footer-row {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (min-width: 600px) {
+            .footer-row {
+                flex-direction: row;
+                gap: 50px;
+                align-items: flex-start;
+            }
+            .footer-card {
+                flex: 1;
+            }
+        }
+
+        .footer-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-sub-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            color: #ffffff;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .title-research {
+            text-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+        }
+
+        .title-join {
+            text-shadow: 0 0 8px rgba(255, 0, 127, 0.6);
+        }
+
+        .footer-link-btn {
+            display: inline-block;
+            padding: 10px 28px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-research {
+            border: 1.5px solid #00e5ff;
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.15);
+        }
+        .btn-research:hover {
+            background: #00e5ff;
+            color: #000000;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-join {
+            border: 1.5px solid #ff007f;
+            box-shadow: 0 0 10px rgba(255, 0, 127, 0.15);
+        }
+        .btn-join:hover {
+            background: #ff007f;
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.6);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <header class="sticky">
+        <div class="navbar">
+            <a href="index.html">
+                <img src="images/Logo-w.png" class="logo" alt="Sonic Hong Kong Logo" />
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about-us.html">ABOUT US</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="sound-bites-favexpressions.html" class="active-parent">SOUND BITES ▼</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="sound-bites-favexpressions.html" class="active-subpage">Favourite Expressions</a></li>
+                            <li><a href="sound-bites-research.html">Research</a></li>
+                            <li><a href="sound-bites-joinus.html">Join Us</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="hidden-stories.html">HIDDEN STORIES</a></li>
+                    <li><a href="sunday-voices.html">SUNDAY VOICES</a></li>
+                    <li><a href="sonic-youth.html">SONIC YOUTH</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="main-title">Sound Bites</h1>
+            <p class="sub-title sub-title-hk">Hong Kong</p>
+            <p class="sub-title">Community Archive of Favourite Cantonese Expressions</p>
+            <p class="sub-title" style="margin-top: 65px; font-size: 35px; font-weight: 400">Explore Our Archive</p>
+        </div>
+    </div>
+    
+    <div id="map-container"></div>
+
+    <div class="footer-info-section">
+        <p class="footer-intro-text">
+            <i>"Sound Bites"</i> is a community based research project dedicated to collecting, recording, and preserving distinctive Cantonese soundscape of Hong Kong. Our archive features favorite Cantonese expressions of Hongkongers from various background and ages. Through interactive, illuminated neon sign visuals, we hope to convey these warm, humorous, and historically significant everyday expressions to everyone. Click on any sign to hear the authentic street pronunciation and explanation.
+        </p>
+        <div class="footer-row">
+            <div class="footer-card">
+                <h3 class="footer-sub-title title-research">In-depth exploration of academic research</h3>
+                <a href="sound-bites-research.html" class="footer-link-btn btn-research">Research Data</a>
+            </div>
+            <div class="footer-card">
+                <h3 class="footer-sub-title title-join">Add your voice &<br />Be a part of the archive</h3>
+                <a href="sound-bites-joinus.html" class="footer-link-btn btn-join">Join Us</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const data = [{"id": "neon_0", "chinese": "屌", "subtext": "diu2", "meaning": "fuck", "audios": ["Karl_diu2.wav", "Elyse_diu2.wav"], "count": 7, "style": {"border": "#e74c3c", "shadow": "rgba(231, 76, 60, 0.8)", "bg": "rgba(25, 10, 10, 0.8)"}, "base_size": 1.8399999999999999}, {"id": "neon_1", "chinese": "屌你老母", "subtext": "diu2 nei5 lou5 mou5", "meaning": "fuck your mum", "audios": ["浩阳_diu2nei5lou5mou5.wav", "Yiuyu_diu2 nei5 lou5 mou5.wav"], "count": 3, "style": {"border": "#2ecc71", "shadow": "rgba(46, 204, 113, 0.8)", "bg": "rgba(10, 25, 15, 0.8)"}, "base_size": 1.3599999999999999}, {"id": "neon_2", "chinese": "加油", "subtext": "ga1 yau5", "meaning": "cheers", "audios": ["Kachi_ga1 yau5.wav"], "count": 2, "style": {"border": "#9b59b6", "shadow": "rgba(155, 89, 182, 0.8)", "bg": "rgba(20, 10, 25, 0.8)"}, "base_size": 1.24}, {"id": "neon_3", "chinese": "傻閪", "subtext": "so4 hai1", "meaning": "dumbass", "audios": ["Chris_SoHai.wav"], "count": 1, "style": {"border": "#e67e22", "shadow": "rgba(230, 126, 34, 0.8)", "bg": "rgba(25, 20, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_4", "chinese": "頂你個肺", "subtext": "ding2 nei5 go3 fai3", "meaning": "elbow your lung", "audios": ["Riley_ding2nei5go3fai3.wav"], "count": 1, "style": {"border": "#2ecc71", "shadow": "rgba(46, 204, 113, 0.8)", "bg": "rgba(10, 25, 15, 0.8)"}, "base_size": 1.12}, {"id": "neon_5", "chinese": "早晨", "subtext": "zou2 san4", "meaning": "good morning", "audios": [], "count": 1, "style": {"border": "#2ecc71", "shadow": "rgba(46, 204, 113, 0.8)", "bg": "rgba(10, 25, 15, 0.8)"}, "base_size": 1.12}, {"id": "neon_6", "chinese": "含 含撚", "subtext": "ham4 lan2", "meaning": "Blow job, something bad happened", "audios": [], "count": 1, "style": {"border": "#3498db", "shadow": "rgba(52, 152, 219, 0.8)", "bg": "rgba(10, 15, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_7", "chinese": "屌你", "subtext": "diu2 nei5", "meaning": "fuck you", "audios": [], "count": 1, "style": {"border": "#e74c3c", "shadow": "rgba(231, 76, 60, 0.8)", "bg": "rgba(25, 10, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_8", "chinese": "濕濕碎", "subtext": "sap1 sap1 seoi3", "meaning": "easy job", "audios": [], "count": 1, "style": {"border": "#9b59b6", "shadow": "rgba(155, 89, 182, 0.8)", "bg": "rgba(20, 10, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_9", "chinese": "心靜自然涼", "subtext": "sam1 zing6 zi6jin4 loeng4", "meaning": "Peace of mind, cool heart", "audios": [], "count": 1, "style": {"border": "#3498db", "shadow": "rgba(52, 152, 219, 0.8)", "bg": "rgba(10, 15, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_10", "chinese": "一仆一碌", "subtext": "jat1 puk1 jat1 luk1", "meaning": "stumbling and very embarrassed when walking.", "audios": [], "count": 1, "style": {"border": "#3498db", "shadow": "rgba(52, 152, 219, 0.8)", "bg": "rgba(10, 15, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_11", "chinese": "爛gag", "subtext": "laan6 gag", "meaning": "dry humour", "audios": [], "count": 1, "style": {"border": "#3498db", "shadow": "rgba(52, 152, 219, 0.8)", "bg": "rgba(10, 15, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_12", "chinese": "靚仔靚女", "subtext": "leng3 zai2 leng3 neoi2", "meaning": "beautiful and handsome", "audios": [], "count": 1, "style": {"border": "#9b59b6", "shadow": "rgba(155, 89, 182, 0.8)", "bg": "rgba(20, 10, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_13", "chinese": "搞搞震", "subtext": "gaau2 gaau2 zan3", "meaning": "make a fuss", "audios": [], "count": 1, "style": {"border": "#2ecc71", "shadow": "rgba(46, 204, 113, 0.8)", "bg": "rgba(10, 25, 15, 0.8)"}, "base_size": 1.12}, {"id": "neon_14", "chinese": "仆街", "subtext": "puk1 gaai1", "meaning": "fall down", "audios": [], "count": 1, "style": {"border": "#e67e22", "shadow": "rgba(230, 126, 34, 0.8)", "bg": "rgba(25, 20, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_15", "chinese": "做乜撚嘢", "subtext": "zou6 mat1 nan2 je5", "meaning": "what the fuck are you doing", "audios": [], "count": 1, "style": {"border": "#2ecc71", "shadow": "rgba(46, 204, 113, 0.8)", "bg": "rgba(10, 25, 15, 0.8)"}, "base_size": 1.12}, {"id": "neon_16", "chinese": "hea", "subtext": "0", "meaning": "暫無解釋", "audios": [], "count": 1, "style": {"border": "#3498db", "shadow": "rgba(52, 152, 219, 0.8)", "bg": "rgba(10, 15, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_17", "chinese": "師兄啊", "subtext": "Si1 hing1 aa1", "meaning": "brotherrrrrr", "audios": ["Hardy_Si1hing1aa1.wav"], "count": 1, "style": {"border": "#3498db", "shadow": "rgba(52, 152, 219, 0.8)", "bg": "rgba(10, 15, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_18", "chinese": "死唔去", "subtext": "sei2 m4 höy3", "meaning": "it wont die", "audios": ["Wing_sei2 m4 höy3.wav"], "count": 1, "style": {"border": "#e67e22", "shadow": "rgba(230, 126, 34, 0.8)", "bg": "rgba(25, 20, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_19", "chinese": "要割禾就先要彎腰", "subtext": "jiu3 gut6 wo4 zau6 sin1 jiu3 waan1 jiu1", "meaning": "To harvest rice, you must first bend over.", "audios": ["Ali_jiu3gut6wo4zau6sin1jiu3waan1jiu1.wav"], "count": 1, "style": {"border": "#3498db", "shadow": "rgba(52, 152, 219, 0.8)", "bg": "rgba(10, 15, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_20", "chinese": "係咁啦", "subtext": "hai6 gam2 laa1", "meaning": "this is the way it is", "audios": ["Jon_hai6gam2laa1.wav"], "count": 1, "style": {"border": "#e67e22", "shadow": "rgba(230, 126, 34, 0.8)", "bg": "rgba(25, 20, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_21", "chinese": "一蚊一斤龜 七蚊一斤雞", "subtext": "jat1 man1 jat1 gan1 gwai1, cat1 man1 jat1 gan1 gai1", "meaning": "One dollar a pound of turtle, seven dollars a pound of chicken", "audios": ["Daniel_jat1 man1 jat1 gan1 gwai1_cat1 man1 jat1 gan1 gai1.wav"], "count": 1, "style": {"border": "#9b59b6", "shadow": "rgba(155, 89, 182, 0.8)", "bg": "rgba(20, 10, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_22", "chinese": "頂你", "subtext": "ding2 nei5", "meaning": "damn you", "audios": ["Poyin_ding2 nei5.wav"], "count": 1, "style": {"border": "#e67e22", "shadow": "rgba(230, 126, 34, 0.8)", "bg": "rgba(25, 20, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_23", "chinese": "大癲", "subtext": "daai6 din1", "meaning": "describe something is very crazy.", "audios": ["Pakto_daai6din1.wav"], "count": 1, "style": {"border": "#e74c3c", "shadow": "rgba(231, 76, 60, 0.8)", "bg": "rgba(25, 10, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_24", "chinese": "吓", "subtext": "haa1", "meaning": "what?/huh?", "audios": ["Holley_haa2.wav"], "count": 1, "style": {"border": "#e74c3c", "shadow": "rgba(231, 76, 60, 0.8)", "bg": "rgba(25, 10, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_25", "chinese": "食飯", "subtext": "sik6 faan6", "meaning": "eat rice", "audios": ["Kristen_sik6 faan6.wav"], "count": 1, "style": {"border": "#3498db", "shadow": "rgba(52, 152, 219, 0.8)", "bg": "rgba(10, 15, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_26", "chinese": "我唔想返工啊", "subtext": "ngo5 m4 soeng2 faan2 gung1 aa3", "meaning": "I dont want to go to work", "audios": ["Winifred_ngo5 m4 soeng2 faan2 gung1 aa3.wav"], "count": 1, "style": {"border": "#3498db", "shadow": "rgba(52, 152, 219, 0.8)", "bg": "rgba(10, 15, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_27", "chinese": "行啦，起得", "subtext": "haang4 laa1, hei2 dak1", "meaning": "Let's go", "audios": ["Zoe_haang4laa1_hei2dak1.wav"], "count": 1, "style": {"border": "#9b59b6", "shadow": "rgba(155, 89, 182, 0.8)", "bg": "rgba(20, 10, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_28", "chinese": "靜靜雞/靜雞雞", "subtext": "zing6 zing2 gai1/zing6 gai1 gai1", "meaning": "secrely (doing sth)", "audios": ["Candy_zing6 zing2 gai1_zing6 gai1 gai1.wav"], "count": 1, "style": {"border": "#9b59b6", "shadow": "rgba(155, 89, 182, 0.8)", "bg": "rgba(20, 10, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_29", "chinese": "你好靚女", "subtext": "nei5 hou2 leng3 neoi5", "meaning": "you're very pretty", "audios": ["Nicole_nei5hou2leng3neoi5.wav"], "count": 1, "style": {"border": "#e74c3c", "shadow": "rgba(231, 76, 60, 0.8)", "bg": "rgba(25, 10, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_30", "chinese": "唔緊要", "subtext": "m4 gan2 jiu3", "meaning": "it doesn't matter/no worries.", "audios": ["Maggie_m4 gan2 jiu3.wav"], "count": 1, "style": {"border": "#9b59b6", "shadow": "rgba(155, 89, 182, 0.8)", "bg": "rgba(20, 10, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_31", "chinese": "黐線", "subtext": "ci1 sin3", "meaning": "maniac", "audios": ["Kairos_ci1sin3.wav", "Carson_ci1 sin3.wav"], "count": 1, "style": {"border": "#e74c3c", "shadow": "rgba(231, 76, 60, 0.8)", "bg": "rgba(25, 10, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_32", "chinese": "唉！是但", "subtext": "aai1,si6daan6", "meaning": "Whatever (not obsessed with what is in front of you)", "audios": ["Mushroom_aai1_si6daan6.wav"], "count": 1, "style": {"border": "#2ecc71", "shadow": "rgba(46, 204, 113, 0.8)", "bg": "rgba(10, 25, 15, 0.8)"}, "base_size": 1.12}, {"id": "neon_33", "chinese": "唔該", "subtext": "m4 goi1", "meaning": "0", "audios": ["Yuki_m4 goi1.wav"], "count": 1, "style": {"border": "#3498db", "shadow": "rgba(52, 152, 219, 0.8)", "bg": "rgba(10, 15, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_34", "chinese": "你幾靚喎", "subtext": "nei5 gei2 leng3 wo3", "meaning": "You’re quite pretty", "audios": ["Uncle01_nei5gei2leng3wo3.wav"], "count": 1, "style": {"border": "#2ecc71", "shadow": "rgba(46, 204, 113, 0.8)", "bg": "rgba(10, 25, 15, 0.8)"}, "base_size": 1.12}, {"id": "neon_35", "chinese": "你好", "subtext": "nei5 hou2", "meaning": "Hello", "audios": ["Uncle02_nei5 hou2.wav"], "count": 1, "style": {"border": "#e67e22", "shadow": "rgba(230, 126, 34, 0.8)", "bg": "rgba(25, 20, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_36", "chinese": "褦襶", "subtext": "le5 de2", "meaning": "a bit lazy, careless, or sloppy in the way they do things", "audios": ["Vincent_le5 fe2.wav"], "count": 1, "style": {"border": "#e74c3c", "shadow": "rgba(231, 76, 60, 0.8)", "bg": "rgba(25, 10, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_37", "chinese": "嘩，好開心呀。", "subtext": "waa1, hou2 hoi1 sam1 aa3", "meaning": "Wow, I’m so happy!", "audios": ["Curtis_waa1_hou2 hoi1 sam1 aa3.wav"], "count": 1, "style": {"border": "#2ecc71", "shadow": "rgba(46, 204, 113, 0.8)", "bg": "rgba(10, 25, 15, 0.8)"}, "base_size": 1.12}, {"id": "neon_38", "chinese": "乜嘢呀", "subtext": "mat1 je5 aa3", "meaning": "to ask what something is, or sometimes to show surprise, confusion, or disbelief depending on the tone.", "audios": ["黑蛋_mat1 je5 aa3.wav"], "count": 1, "style": {"border": "#3498db", "shadow": "rgba(52, 152, 219, 0.8)", "bg": "rgba(10, 15, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_39", "chinese": "咩/咩話", "subtext": "me1/me1 waa6", "meaning": "what", "audios": ["Nick_me1_me1 waa6.wav"], "count": 1, "style": {"border": "#9b59b6", "shadow": "rgba(155, 89, 182, 0.8)", "bg": "rgba(20, 10, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_40", "chinese": "冚唪唥", "subtext": "ham6 baang6 laang6", "meaning": "“all” or “everything\"", "audios": ["Larry_ham6 baang6 laang6.wav"], "count": 1, "style": {"border": "#9b59b6", "shadow": "rgba(155, 89, 182, 0.8)", "bg": "rgba(20, 10, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_41", "chinese": "添", "subtext": "tim1", "meaning": "sentence-final particles", "audios": ["Yolanda_tim1.wav"], "count": 1, "style": {"border": "#e67e22", "shadow": "rgba(230, 126, 34, 0.8)", "bg": "rgba(25, 20, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_42", "chinese": "擔屎唔偷食", "subtext": "daam1 si2 m4 tau1 sik6", "meaning": "describe someone as very honest", "audios": ["Michael_daam1 si2 m4 tau1 sik6.wav"], "count": 1, "style": {"border": "#e67e22", "shadow": "rgba(230, 126, 34, 0.8)", "bg": "rgba(25, 20, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_43", "chinese": "乖", "subtext": "gwaai1", "meaning": "good", "audios": ["Pat_gwaai1.wav"], "count": 1, "style": {"border": "#3498db", "shadow": "rgba(52, 152, 219, 0.8)", "bg": "rgba(10, 15, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_44", "chinese": "啦", "subtext": "laa1", "meaning": "sentence-final particles", "audios": ["Marco_laa1.wav"], "count": 1, "style": {"border": "#3498db", "shadow": "rgba(52, 152, 219, 0.8)", "bg": "rgba(10, 15, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_45", "chinese": "收到", "subtext": "sau1 dou2", "meaning": "copy/ undersatnd / got it", "audios": ["Jolie_sau1 dou2.wav"], "count": 1, "style": {"border": "#e74c3c", "shadow": "rgba(231, 76, 60, 0.8)", "bg": "rgba(25, 10, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_46", "chinese": "雞同鴨講", "subtext": "gai1 tung4 aap3 gong2", "meaning": "chicken talking to a duck ( two people completely not on the same wavelength, talking past each other.)", "audios": ["Benny_gai1 tung4 aap3 gong2.wav"], "count": 1, "style": {"border": "#3498db", "shadow": "rgba(52, 152, 219, 0.8)", "bg": "rgba(10, 15, 25, 0.8)"}, "base_size": 1.12}, {"id": "neon_47", "chinese": "頂", "subtext": "ding2", "meaning": "0", "audios": ["Janet_ding2.wav"], "count": 1, "style": {"border": "#e74c3c", "shadow": "rgba(231, 76, 60, 0.8)", "bg": "rgba(25, 10, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_48", "chinese": "撚", "subtext": "lan2", "meaning": "0", "audios": ["彥同_lan2.wav"], "count": 1, "style": {"border": "#e74c3c", "shadow": "rgba(231, 76, 60, 0.8)", "bg": "rgba(25, 10, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_49", "chinese": "唔該曬", "subtext": "m4 goi1 saai3", "meaning": "Thanks a lot", "audios": ["Vincent_m4goi1saai3.wav"], "count": 1, "style": {"border": "#e74c3c", "shadow": "rgba(231, 76, 60, 0.8)", "bg": "rgba(25, 10, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_50", "chinese": "講經咩", "subtext": "gong2 ging1 me1", "meaning": "0", "audios": ["Tung_gong2ging1me1.wav"], "count": 1, "style": {"border": "#2ecc71", "shadow": "rgba(46, 204, 113, 0.8)", "bg": "rgba(10, 25, 15, 0.8)"}, "base_size": 1.12}, {"id": "neon_51", "chinese": "卷土從來", "subtext": "gyun2 tou2 cung4 loi4", "meaning": "Come back stronger after a setback.", "audios": ["Katie_gyun2 tou2 cung4 loi4.wav"], "count": 1, "style": {"border": "#2ecc71", "shadow": "rgba(46, 204, 113, 0.8)", "bg": "rgba(10, 25, 15, 0.8)"}, "base_size": 1.12}, {"id": "neon_52", "chinese": "聽日見", "subtext": "ting1 jat6 gin3", "meaning": "See you tomorrow", "audios": ["Kitty_ting1 jat6 gin3.wav"], "count": 1, "style": {"border": "#2ecc71", "shadow": "rgba(46, 204, 113, 0.8)", "bg": "rgba(10, 25, 15, 0.8)"}, "base_size": 1.12}, {"id": "neon_53", "chinese": "你食飽未？", "subtext": "nei5 sik6 baau2 mei6", "meaning": "Have you eaten yet?", "audios": ["Gigi_s Grandma_nei5 sik6 baau2 mei6.wav"], "count": 1, "style": {"border": "#e67e22", "shadow": "rgba(230, 126, 34, 0.8)", "bg": "rgba(25, 20, 10, 0.8)"}, "base_size": 1.12}, {"id": "neon_54", "chinese": "好的", "subtext": "hou2dik1", "meaning": "Okay", "audios": ["Gigi_s auntie_hou2dik1.wav"], "count": 1, "style": {"border": "#2ecc71", "shadow": "rgba(46, 204, 113, 0.8)", "bg": "rgba(10, 25, 15, 0.8)"}, "base_size": 1.12}];
+        const container = document.getElementById('map-container');
+        const placedBoards = []; 
+        let currentAudio = null;
+        let currentActiveBtn = null;
+
+        const viewWidth = window.innerWidth;
+        let rwdScale = 1.0;         
+        let heightFactor = 10;      
+        let safeMargin = 5;         
+
+        if (viewWidth < 480) {
+            rwdScale = 0.6;        
+            heightFactor = 6;      
+            safeMargin = 2;         
+        } else if (viewWidth < 1024) {
+            rwdScale = 0.85;
+            heightFactor = 3;
+            safeMargin = 4;
+        } else {
+            rwdScale = 1.1;         
+            heightFactor = 2;      
+            safeMargin = 5;
+        }
+
+        // ====== 容器高度與邊界計算 ======
+        const calculatedHeight = data.length * heightFactor * 15;
+        const dynamicHeight = Math.max(800, calculatedHeight);
+        container.style.height = `${dynamicHeight}px`;
+
+        function resetAllButtons() {
+            document.querySelectorAll('.play-btn').forEach(btn => {
+                btn.classList.remove('playing');
+                const progressBar = btn.querySelector('.btn-progress');
+                if (progressBar) {
+                    progressBar.style.transition = 'none'; 
+                    progressBar.style.transform = 'scaleX(0)'; 
+                }
+            });
+            currentActiveBtn = null;
+        }
+
+        function playWordAudio(audioPath, btn) {
+            if (!audioPath || audioPath.trim() === "" || audioPath === "0") return; 
+            if (currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; }
+            resetAllButtons();
+
+            currentAudio = new Audio("audio/" + audioPath);
+            currentActiveBtn = btn;
+            
+            if (currentActiveBtn) {
+                currentActiveBtn.classList.add('playing');
+                const progressBar = currentActiveBtn.querySelector('.btn-progress');
+
+                currentAudio.addEventListener('loadedmetadata', () => {
+                    if (currentActiveBtn !== btn) return; 
+                    const duration = currentAudio.duration;
+                    
+                    progressBar.style.transition = 'none';
+                    progressBar.style.transform = 'scaleX(0)';
+                    
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            progressBar.style.transition = `transform ${duration}s linear`;
+                            progressBar.style.transform = 'scaleX(1)';
+                        });
+                    });
+                });
+            }
+
+            currentAudio.addEventListener('ended', () => {
+                resetAllButtons();
+            });
+            
+            currentAudio.play().catch(e => {
+                console.error("撥放失敗:", e);
+                resetAllButtons();
+            });
+        }
+
+        function defIsOverlapping(rect1, rect2) {
+            return !(rect1.right + safeMargin < rect2.left || 
+                     rect1.left - safeMargin > rect2.right || 
+                     rect1.bottom + safeMargin < rect2.top || 
+                     rect1.top - safeMargin > rect2.bottom);
+        }
+
+        document.body.addEventListener('click', (e) => {
+            if (e.target === document.body || e.target === container) {
+                document.querySelectorAll('.neon-board').forEach(b => b.classList.remove('active'));
+                container.classList.remove('has-active'); 
+                if (currentAudio) {
+                    currentAudio.pause();
+                    currentAudio.currentTime = 0;
+                }
+                resetAllButtons();
+            }
+        });
+
+        data.forEach((item, index) => {
+            const board = document.createElement('div');
+            board.className = 'neon-board';
+            board.id = item.id;
+            
+            const final_scale = item.base_size * rwdScale;
+            const font_size = final_scale * 1.2;
+            const padding_v = Math.floor(8 * final_scale);
+            const padding_h = Math.floor(16 * final_scale);
+            
+            const meaning_font_size = font_size * 0.55; 
+            const meaning_max_width = Math.floor(font_size * 180);
+            const btn_font_size = font_size * 0.5; 
+            
+            board.style.padding = `${padding_v}px ${padding_h}px`;
+            board.style.background = item.style.bg;
+            board.style.border = `${Math.max(1.5, 3 * rwdScale)}px solid ${item.style.border}`;
+            board.style.boxShadow = `0 0 ${15 * rwdScale}px ${item.style.border}, inset 0 0 ${10 * rwdScale}px ${item.style.shadow}`;
+            
+            let buttonsHtml = "";
+            if (item.audios && item.audios.length > 0) {
+                buttonsHtml = '<div class="audio-container">';
+                item.audios.forEach((audioFile, idx) => {
+                    let speakerName = `語音${idx + 1}`;
+                    buttonsHtml += `
+                        <div class="play-btn" data-audio="${audioFile}" style="font-size: ${btn_font_size}rem;">
+                            <span class="btn-text">🔊 ${speakerName}</span>
+                            <span class="btn-progress"></span>
+                        </div>`;
+                });
+                buttonsHtml += '</div>';
+            }
+            
+            board.innerHTML = `
+                <div class="neon-title" style="font-size: ${font_size}rem; color: #fff; text-shadow: 0 0 5px #fff, 0 0 10px ${item.style.border}, 0 0 20px ${item.style.border};">${item.chinese}</div>
+                <div class="neon-sub" style="font-size: ${font_size * 0.45}rem; color: ${item.style.border}; text-shadow: 0 0 5px ${item.style.shadow};">${item.subtext}</div>
+                <div class="neon-meaning" style="font-size: ${meaning_font_size}rem; max-width: ${meaning_max_width}px; color: #fff; text-shadow: 0 0 5px #fff;">${item.meaning}</div>
+                ${buttonsHtml}
+            `;
+            
+            board.addEventListener('click', (e) => {
+                e.stopPropagation(); 
+                if (board.classList.contains('active')) {
+                    board.classList.remove('active');
+                    container.classList.remove('has-active'); 
+                    if (currentAudio) {
+                        currentAudio.pause();
+                        currentAudio.currentTime = 0;
+                    }
+                    resetAllButtons();
+                } else {
+                    document.querySelectorAll('.neon-board').forEach(b => b.classList.remove('active'));
+                    board.classList.add('active');
+                    container.classList.add('has-active');    
+                }
+            });
+            
+            const playBtns = board.querySelectorAll('.play-btn');
+            playBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation(); 
+                    const audioPath = btn.getAttribute('data-audio');
+                    playWordAudio(audioPath, btn);
+                });
+            });
+            
+            container.appendChild(board);
+            
+            const boardWidth = board.offsetWidth;
+            const boardHeight = board.offsetHeight;
+            let isOverlapping = true;
+            let attempts = 0;
+            let left = 0; let top = 0;
+            
+            const containerWidth = container.clientWidth || viewWidth;
+            const sidePadding = viewWidth < 480 ? 15 : 40;
+            
+            const startY = 0; 
+            const maxY = Math.max(0, dynamicHeight - boardHeight - 40);
+
+            while (isOverlapping && attempts < 2000) {
+                const maxW = Math.max(0, containerWidth - boardWidth - sidePadding * 2);
+                left = Math.floor(Math.random() * (maxW + 1)) + sidePadding;
+                
+                const rangeY = Math.max(0, maxY - startY);
+                top = Math.floor(Math.random() * (rangeY + 1));
+
+                const currentRect = { left: left, top: top, right: left + boardWidth, bottom: top + boardHeight };
+                isOverlapping = placedBoards.some(placedRect => defIsOverlapping(currentRect, placedRect));
+                attempts++;
+            }
+
+            board.style.left = `${left}px`;
+            board.style.top = `${top}px`;
+            board.style.visibility = 'visible';
+            placedBoards.push({ left: left, top: top, right: left + boardWidth, bottom: top + boardHeight });
+        });
+    </script>
+</body>
+</html>
