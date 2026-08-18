@@ -294,6 +294,16 @@
         box-shadow: 0 10px 30px rgba(255, 0, 127, 0.05);
       }
 
+      .data-row.alt-layout {
+        flex-direction: column !important;
+        gap: 20px;
+      }
+
+      /* 2. 上方文字區塊寬度 100% */
+      .data-row.alt-layout .data-content {
+        width: 100%;
+      }
+
       .data-row:hover {
         transform: translateY(-5px);
       }
@@ -519,6 +529,8 @@
           padding: 20px;
           line-height: 1.8;
         }
+        .row-bottom-split {
+        flex-direction: column;}
       }
 
       /* ==========================================
@@ -647,6 +659,55 @@
         color: #00e5ff;
         text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
       }
+
+      /* ====== 第二張卡片專屬極簡排版 ====== */
+      /* 下方左右對分 (左 Results, 右 圖片) */
+      .row-bottom-split {
+        display: flex;
+        gap: 30px;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .row-bottom-split .results-box,
+      .row-bottom-split .data-visual {
+        flex: 1;
+      }
+
+      /* Results 標題與對齊 Grid (純虛線，無多餘外框) */
+      .results-heading {
+        font-size: 16px;
+        font-weight: 700;
+        color: #ff007f;
+        margin-bottom: 10px;
+      }
+
+      .results-grid {
+        display: grid;
+        grid-template-columns: 1fr auto; /* 左側自適應，右側數字貼右 */
+        row-gap: 4px;
+        column-gap: 20px;
+        font-size: 14px;
+        color: #e0e0e0;
+      }
+
+      .results-grid span {
+        padding: 5px 0;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.1); /* 僅留簡潔虛線 */
+      }
+
+      .results-grid span:nth-child(even) {
+        text-align: right;
+        font-weight: 600;
+      }
+
+      .results-grid .header {
+        font-weight: 700;
+        color: #00e5ff;
+        border-bottom: 1.5px solid #00e5ff; /* 表頭藍色實線 */
+        padding-bottom: 6px;
+        text-shadow: 0 0 6px rgba(0, 229, 255, 0.4);
+      }
     </style>
   </head>
   <body>
@@ -735,7 +796,7 @@
       <div class="data-row">
         <div class="data-visual">
           <img
-            src="images/research_img1.jpg"
+            src="images/research_img1v2.png"
             class="zoomable-img"
             alt="Cantonese Keyword Analysis Chart"
           />
@@ -743,39 +804,51 @@
         <div class="data-content">
           <h3 class="data-title cyan">Types of Favorite Words</h3>
           <p class="data-desc">
-            The results from the initial data of 74 participants shows that 34
-            percent choose swear words as their favorite expression, 60 percent
-            chose other regular expressions, and 5 percent named words particles
+            The results from the initial data of participants shows that 31.3% chose swear words as their favorite expression, 64.1%
+            chose other regular expressions, and 4.7% named word particles
             that adds expressiveness of a sentence as their favorite Cantonese
             expression.
           </p>
         </div>
       </div>
 
-      <div class="data-row pink-style reverse">
-        <div class="data-visual">
-          <img
-            src="images/research_img2.jpg"
-            class="zoomable-img"
-            alt="Types of Favorite Words Analysis Chart"
-          />
-        </div>
+      <div class="data-row pink-style alt-layout">
         <div class="data-content">
           <h3 class="data-title pink">Significance of Cantonese by Keywords</h3>
           <p class="data-desc">
-            We asked our participant what the significance of Cantonese is from
-            a linguistic or personal standpoint. We analyzed the results
-            qualitatively and created related keywords from studying their
-            responses. Majority expressed more than one significance.
-            <br /><br />The participants commonly identify rich tonalities, high
-            expressiveness, and a sense of belonging as the significant
-            characteristics. Furthermore, fear of disappearance, humor,
-            meanness, fun to swear, difference between written and spoken
-            Cantonese were also identified.
+            We asked our participant what the significance of Cantonese is from a linguistic or personal standpoint. We analyzed the results qualitatively and created related keywords from studying their responses. Majority expressed more than one significance.
           </p>
         </div>
+
+        <div class="row-bottom-split">
+          <div class="results-box">
+            <div class="results-heading">Results:</div>
+            <div class="results-grid">
+              <span class="header">Keywords</span>
+              <span class="header">Numbers</span>
+
+              <span>Nine Tone</span><span>27</span>
+              <span>Emotional expressive</span><span>21</span>
+              <span>Cultural identity</span><span>18</span>
+              <span>Fun, Humor</span><span>10</span>
+              <span>Expressive swear word</span><span>9</span>
+              <span>Complicated, Complex, Difficult</span><span>9</span>
+              <span>Other</span><span>8</span>
+              <span>Spoken vs. written differences</span><span>8</span>
+              <span>Mixes Languages</span><span>7</span>
+              <span>Sounds Like Singing</span><span>6</span>
+              <span>Unique Expressions</span><span>6</span>
+              <span>Rich Morpheme Adverbs</span><span>6</span>
+              <span>Fear of its Disappearance</span><span>6</span>
+              <span>Historical</span><span>3</span>
+            </div>
+          </div>
+
+          <div class="data-visual">
+            <img src="images/research_img2v2.png" class="zoomable-img" alt="Significance of Cantonese Chart" onclick="openLightbox(this.src)" />
+          </div>
+        </div>
       </div>
-    </div>
 
     <div class="lightbox-overlay" id="lightboxOverlay">
       <img class="lightbox-img" id="lightboxImg" src="" alt="Zoomed Image" />
@@ -794,7 +867,7 @@
       <div class="footer-row">
         <div class="footer-card">
           <h3 class="footer-sub-title title-neonmap">
-            Explore Favourite Cantonese Expressions
+            Explore Favourite<br />Cantonese Expressions
           </h3>
           <a
             href="sound-bites-favexpressions.html"
