@@ -774,18 +774,19 @@
         </p>
 
         <div class="sort-btn-group">
-          <button
-            class="sort-btn active"
-            onclick="changeSort(event, 'strokes')"
-          >
-            靠詞彙筆劃數 (Stroke Count)
+          <button class="sort-btn active" onclick="changeSort(event, 'count')">
+            出現次數 (Frequency)
           </button>
           <button class="sort-btn" onclick="changeSort(event, 'pinyin')">
             粵拼順序 (Jyutping A-Z)
           </button>
-          <button class="sort-btn" onclick="changeSort(event, 'count')">
-            出現次數 (Frequency)
+          <button
+            class="sort-btn"
+            onclick="changeSort(event, 'strokes')"
+          >
+            靠詞彙筆劃數 (Stroke Count)
           </button>
+          
         </div>
 
         <div class="vocab-grid" id="orderedVocabGrid"></div>
